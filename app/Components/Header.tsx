@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -12,52 +14,99 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navLinks = [
+        { name: 'Home', href: '/' },
+        { name: 'About Us', href: '/about' },
+        { name: 'Services', href: '/services' },
+        { name: 'Horoscope', href: '/horoscope' },
+        { name: 'Insights', href: '/insights' },
+        { name: 'Contact', href: '/contact' },
+    ];
+
     return (
-        <header className={`modern-header ${scrolled ? 'scrolled' : ''}`}>
-            <div className="header-container wrapper">
+        <header
+            className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
+                    ? 'py-3 bg-cosmic-black/80 backdrop-blur-lg border-b border-gold-500/10 shadow-2xl'
+                    : 'py-6 bg-transparent'
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
-                <div className="modern-logo">
-                    <div className="logo-icon-wrapper">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L15 9H22L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9H9L12 2Z" fill="url(#gold-gradient)" />
-                            <defs>
-                                <linearGradient id="gold-gradient" x1="2" y1="2" x2="22" y2="21" gradientUnits="userSpaceOnUse">
-                                    <stop stopColor="#FDE68A" />
-                                    <stop offset="0.5" stopColor="#D4AF37" />
-                                    <stop offset="1" stopColor="#996E00" />
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                <div className="flex items-center gap-3 group cursor-pointer">
+                    <div className="relative">
+                        <div className="absolute -inset-1 bg-gold-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                        <div className="relative bg-cosmic-black p-1.5 rounded-full border border-gold-500/20">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-400">
+                                <path d="M12 2L15 9H22L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9H9L12 2Z" fill="currentColor" />
+                            </svg>
+                        </div>
                     </div>
-                    <span>Astro<span className="text-gold">Sphere</span></span>
+                    <span className="text-2xl font-display font-bold tracking-tight text-white">
+                        Astro<span className="text-gradient-gold">Sphere</span>
+                    </span>
                 </div>
 
-                {/* Nav Links */}
-                <nav className="modern-nav">
-                    <a href="#" className="nav-item active">Home</a>
-                    <a href="#about" className="nav-item">About Us</a>
-                    <a href="#services" className="nav-item">Services</a>
-                    <a href="#horoscope" className="nav-item">Horoscope</a>
-                    <a href="#blog" className="nav-item">Insights</a>
-                    <a href="#contact" className="nav-item">Contact</a>
+                {/* Desktop Nav */}
+                <nav className="hidden lg:flex items-center gap-1 glass p-1 rounded-full border-white/5">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300"
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
                 </nav>
 
                 {/* Right Actions */}
-                <div className="header-actions">
-                    <button className="icon-btn" aria-label="Search">
+                <div className="hidden lg:flex items-center gap-4">
+                    <button className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-gold-400 hover:border-gold-500/30 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </button>
-                    <button className="icon-btn" aria-label="Profile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                    </button>
-                    <a href="#consult" className="btn-glow-gold">Consult Now</a>
+                    <Link
+                        href="#consult"
+                        className="px-6 py-2.5 rounded-full bg-linear-to-r from-gold-600 to-gold-400 text-cosmic-black font-bold text-sm hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                        Consult Now
+                    </Link>
                 </div>
-                
+
                 {/* Mobile Menu Toggle */}
-                <button className="mobile-menu-btn" aria-label="Menu">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                <button
+                    className="lg:hidden text-white p-2"
+                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                >
+                    {mobileMenuOpen ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                    )}
                 </button>
             </div>
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+                <div className="lg:hidden absolute top-full left-0 w-full bg-cosmic-black/95 backdrop-blur-xl border-b border-gold-500/10 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
+                    {navLinks.map((link) => (
+                        <Link
+                            key={link.name}
+                            href={link.href}
+                            className="text-lg font-medium text-white/70 hover:text-gold-400 transition-colors"
+                            onClick={() => setMobileMenuOpen(false)}
+                        >
+                            {link.name}
+                        </Link>
+                    ))}
+                    <hr className="border-white/10 my-2" />
+                    <a
+                        href="#consult"
+                        className="w-full py-4 rounded-xl bg-linear-to-r from-gold-600 to-gold-400 text-cosmic-black font-bold text-center"
+                    >
+                        Consult Now
+                    </a>
+                </div>
+            )}
         </header>
     );
 }

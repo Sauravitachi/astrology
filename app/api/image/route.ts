@@ -6,25 +6,37 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const type = searchParams.get('type');
 
-  let filePath = '';
-  
-  if (type === 'wheel') {
-    filePath = 'C:/Users/pc/.gemini/antigravity/brain/0dfca895-cb0a-44ff-9fd4-680ce8d62e27/zodiac_wheel_1776405981432.png';
-  } else if (type === 'bg') {
-    filePath = 'C:/Users/pc/.gemini/antigravity/brain/0dfca895-cb0a-44ff-9fd4-680ce8d62e27/cosmic_background_1776406001385.png';
-  } else {
-    return new NextResponse('Not found', { status: 404 });
+  const fileMap: Record<string, { name: string; type: string }> = {
+    wheel: { name: 'zodiaco.png', type: 'image/png' },
+    bg: { name: 'page.jpeg', type: 'image/jpeg' },
+  };
+
+  const fileInfo = type ? fileMap[type] : null;
+
+  if (!fileInfo) {
+    return new Response('Invalid image type', { status: 400 });
+  }
+
+  const filePath = path.resolve(process.cwd(), 'public', fileInfo.name);
+
+  if (!fs.existsSync(filePath)) {
+    console.error(`Image not found: ${filePath}`);
+    return new Response('Image not found', { status: 404 });
   }
 
   try {
-    const fileBuffer = fs.readFileSync(filePath);
-    return new NextResponse(fileBuffer, {
+    const fileBuffer = await fs.promises.readFile(filePath);
+    return new Response(fileBuffer, {
       headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Content-Type': fileInfo.type,
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
       },
     });
   } catch (error) {
-    return new NextResponse('File read error', { status: 500 });
+    console.error('Error serving image:', error);
+    return new Response('Internal server error', { status: 500 });
   }
 }
+
