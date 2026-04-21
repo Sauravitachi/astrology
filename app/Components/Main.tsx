@@ -1,18 +1,8 @@
+import Horoscopes from "./Horoscopes";
+import Services from "./Services";
+
 export default function Main() {
-  const zodiacSigns = [
-    { name: 'Aries', date: 'Mar 21 - Apr 19', icon: '♈' },
-    { name: 'Taurus', date: 'Apr 20 - May 20', icon: '♉' },
-    { name: 'Gemini', date: 'May 21 - Jun 20', icon: '♊' },
-    { name: 'Cancer', date: 'Jun 21 - Jul 22', icon: '♋' },
-    { name: 'Leo', date: 'Jul 23 - Aug 22', icon: '♌' },
-    { name: 'Virgo', date: 'Aug 23 - Sep 22', icon: '♍' },
-    { name: 'Libra', date: 'Sep 23 - Oct 22', icon: '♎' },
-    { name: 'Scorpio', date: 'Oct 23 - Nov 21', icon: '♏' },
-    { name: 'Sagittarius', date: 'Nov 22 - Dec 21', icon: '♐' },
-    { name: 'Capricorn', date: 'Dec 22 - Jan 19', icon: '♑' },
-    { name: 'Aquarius', date: 'Jan 20 - Feb 18', icon: '♒' },
-    { name: 'Pisces', date: 'Feb 19 - Mar 20', icon: '♓' },
-  ];
+  
   return (
     <main>
       <section className="relative pt-10 pb-20 px-6 lg:pt-20 overflow-hidden">
@@ -77,62 +67,31 @@ export default function Main() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {zodiacSigns.map((sign, index) => (
-              <div
-                key={sign.name}
-                className="zodiac-card group hover:scale-[1.02] active:scale-95 duration-500"
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {/* Decorative corner elements */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/10 group-hover:border-gold-500/50 transition-colors duration-500"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/10 group-hover:border-gold-500/50 transition-colors duration-500"></div>
+      <Horoscopes/>
+        </div>
+      </section>
 
-                {/* Floating particles on hover - using deterministic positions to avoid hydration mismatch */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  {[...Array(4)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-gold-400/40 rounded-full animate-float"
-                      style={{
-                        top: `${((i + 1) * (index + 1) * 31) % 100}%`,
-                        left: `${((i + 1) * (index + 1) * 37) % 100}%`,
-                        animationDelay: `${i * 0.5}s`,
-                        animationDuration: `${3 + i}s`
-                      }}
-                    ></div>
-                  ))}
-                </div>
+      <section id="services" className="relative py-32 px-6">
+        <div className="max-w-7xl mx-auto space-y-24">
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-celestial-500/20 bg-celestial-500/5 text-celestial-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-celestial-500 animate-pulse"></span>
+              Sacred Offerings
+            </div>
+            <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white">
+              Professional <span className="text-gradient-gold">Services</span>
+            </h2>
+            <p className="text-white/40 max-w-2xl mx-auto text-lg leading-relaxed">
+              Explore our specialized astrological services designed to provide clarity, purpose, and spiritual growth on your life journey.
+            </p>
+          </div>
 
-                <div className="relative mb-8 pt-4">
-                  <div className="w-24 h-24 mx-auto flex items-center justify-center relative">
-                    {/* Rotating rings */}
-                    <div className="absolute inset-0 border border-gold-500/10 rounded-full group-hover:border-gold-500/30 group-hover:scale-125 transition-all duration-700"></div>
-                    <div className="absolute inset-[-10px] border border-dashed border-white/5 rounded-full animate-spin-slow-zodiac opacity-30 group-hover:opacity-60"></div>
+          <Services />
 
-                    <span className="text-6xl group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 relative z-20">
-                      {sign.icon}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-2 relative z-10">
-                  <h3 className="font-display font-bold text-2xl tracking-wider text-white group-hover:text-gold-400 transition-colors">
-                    {sign.name}
-                  </h3>
-                  <p className="text-xs text-white/30 font-medium tracking-[0.2em] group-hover:text-gold-500/60 transition-colors">
-                    {sign.date}
-                  </p>
-                </div>
-
-                {/* "Explore" link that appears on hover */}
-                <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-500">
-                    Read Destiny →
-                  </span>
-                </div>
-              </div>
-            ))}
+          <div className="text-center">
+            <button className="btn-gold !px-12">
+              View All Services
+            </button>
           </div>
         </div>
       </section>
@@ -151,10 +110,10 @@ export default function Main() {
           </h2>
           <div className="space-y-8 text-white/60 leading-relaxed text-lg font-light">
             <p>
-              Astrology is a profound ancient wisdom that reveals the connection between the movements of celestial bodies and the patterns of our lives. By understanding these cosmic influences, we can navigate challenges with clarity and embrace opportunities with confidence.
+              Astrology is a profound ancient wisdom that reveals the connection between the movements of celestial bodies and the patterns of our lives. We blend traditional Vedic insights with deep spiritual philosophy to provide a holistic view of your journey.
             </p>
             <p>
-              Our mission is to bring this ancient knowledge to the modern world, providing you with the tools to explore your unique birth chart, daily horoscopes, and celestial alignments that shape your path forward.
+              Our mission is to bring this sacred knowledge to the modern world, combining celestial alignments with spiritual practices like Naam Simran and Seva to guide you toward inner peace and purposeful living.
             </p>
           </div>
           <div className="pt-8">
