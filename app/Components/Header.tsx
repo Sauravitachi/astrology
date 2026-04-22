@@ -5,6 +5,7 @@ import Link from 'next/link';
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -16,9 +17,21 @@ export default function Header() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About Us', href: '/about' },
-        { name: 'Services', href: '/services' },
-        { name: 'Horoscope', href: '/horoscope' },
+        { name: 'About', href: '/#about' },
+        { 
+            name: 'Services', 
+            href: '/services',
+            subLinks: [
+                { name: 'Kundli Analysis', href: '/services/kundli-analysis' },
+                { name: 'Love & Relationship', href: '/services/love-relationship' },
+                { name: 'Career & Job', href: '/services/career-job-prediction' },
+                { name: 'Business & Finance', href: '/services/business-finance' },
+                { name: 'Marriage Matching', href: '/services/marriage-matching' },
+                { name: 'Remedies', href: '/services/effective-remedies' },
+            ]
+        },
+        { name: 'How It Works', href: '/#process' },
+        { name: 'Horoscope', href: '/horoscope' },    
         { name: 'Insights', href: '/insights' },
         { name: 'Contact', href: '/contact' },
     ];
@@ -32,7 +45,7 @@ export default function Header() {
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
                 {/* Logo */}
-                <div className="flex items-center gap-3 group cursor-pointer">
+                <Link href="/" className="flex items-center gap-3 group cursor-pointer">
                     <div className="relative">
                         <div className="absolute -inset-1 bg-gold-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <div className="relative bg-cosmic-black p-1.5 rounded-full border border-gold-500/20">
@@ -44,18 +57,50 @@ export default function Header() {
                     <span className="text-2xl font-display font-bold tracking-tight text-white">
                         Astro<span className="text-gradient-gold">Sphere</span>
                     </span>
-                </div>
+                </Link>
 
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-1 glass p-1 rounded-full border-white/5">
                     {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300"
+                        <div 
+                            key={link.name} 
+                            className="relative group"
+                            onMouseEnter={() => setActiveDropdown(link.name)}
+                            onMouseLeave={() => setActiveDropdown(null)}
                         >
-                            {link.name}
-                        </Link>
+                            {link.subLinks ? (
+                                <button className="px-5 py-2 rounded-full text-sm font-medium text-white/70 group-hover:text-white group-hover:bg-white/5 transition-all duration-300 flex items-center gap-1.5">
+                                    {link.name}
+                                    <svg className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="6 9 12 15 18 9"></polyline>
+                                    </svg>
+                                </button>
+                            ) : (
+                                <Link
+                                    href={link.href}
+                                    className="px-5 py-2 rounded-full text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 block"
+                                >
+                                    {link.name}
+                                </Link>
+                            )}
+
+                            {/* Dropdown Menu */}
+                            {link.subLinks && (
+                                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-300 ${activeDropdown === link.name ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-2'}`}>
+                                    <div className="bg-cosmic-black/90 backdrop-blur-xl border border-white/10 rounded-2xl p-2 min-w-[220px] shadow-2xl overflow-hidden">
+                                        {link.subLinks.map((sub) => (
+                                            <Link
+                                                key={sub.name}
+                                                href={sub.href}
+                                                className="block px-4 py-3 text-sm text-white/60 hover:text-gold-400 hover:bg-white/5 rounded-xl transition-all duration-300"
+                                            >
+                                                {sub.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </nav>
 
@@ -89,14 +134,33 @@ export default function Header() {
             {mobileMenuOpen && (
                 <div className="lg:hidden absolute top-full left-0 w-full bg-cosmic-black/95 backdrop-blur-xl border-b border-gold-500/10 p-6 flex flex-col gap-4 animate-in fade-in slide-in-from-top-4 duration-300">
                     {navLinks.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className="text-lg font-medium text-white/70 hover:text-gold-400 transition-colors"
-                            onClick={() => setMobileMenuOpen(false)}
-                        >
-                            {link.name}
-                        </Link>
+                        <div key={link.name} className="flex flex-col gap-2">
+                            {link.subLinks ? (
+                                <>
+                                    <div className="text-lg font-bold text-gold-400 pt-2">{link.name}</div>
+                                    <div className="pl-4 flex flex-col gap-3 border-l border-white/10 ml-1">
+                                        {link.subLinks.map((sub) => (
+                                            <Link
+                                                key={sub.name}
+                                                href={sub.href}
+                                                className="text-white/60 hover:text-white transition-colors"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                            >
+                                                {sub.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </>
+                            ) : (
+                                <Link
+                                    href={link.href}
+                                    className="text-lg font-medium text-white/70 hover:text-gold-400 transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            )}
+                        </div>
                     ))}
                     <hr className="border-white/10 my-2" />
                     <a
@@ -110,3 +174,4 @@ export default function Header() {
         </header>
     );
 }
+

@@ -70,29 +70,57 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Contact Section */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Cosmic Newsletter</h4>
-            <p className="text-white/40 text-sm">Stay aligned with the stars. Receive weekly horoscopes in your inbox.</p>
-            <div className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Star-seeker's email" 
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-gold-500/50 text-white placeholder:text-white/20"
-              />
-              <button className="btn-gold py-3 text-sm w-full">Subscribe</button>
-            </div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Connect with Us</h4>
+            <ul className="space-y-4">
+              <li>
+                <a href="https://wa.me/91XXXXXXXXXX" className="text-white/40 hover:text-gold-400 text-sm transition-colors flex items-center gap-3 group">
+                  <div className="w-8 h-8 rounded-lg bg-green-500/10 flex items-center justify-center group-hover:bg-green-500 transition-all">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500 group-hover:text-white"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <span>WhatsApp: +91 99XXXXXXX</span>
+                </a>
+              </li>
+              <li className="text-white/40 text-sm flex items-center gap-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <span>contact@astrosphere.com</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-white/20 text-xs">© 2026 AstroSphere. Crafted with celestial magic.</p>
-          <div className="flex gap-8">
-            <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Privacy Policy</Link>
-            <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Terms of Service</Link>
+        <div className="pt-12 pb-8 border-t border-white/5">
+          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 mb-12">
+            <p className="text-white/30 text-xs leading-relaxed text-center italic">
+              <strong>Disclaimer:</strong> Astrology is for guidance purposes only. It is not a substitute for professional medical, legal, or financial advice. We do not guarantee 100% accuracy of predictions as destiny can be influenced by karma and free will.
+            </p>
+          </div>
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-white/20 text-xs">© 2026 AstroSphere. Crafted with celestial magic.</p>
+            <div className="flex gap-8">
+              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Privacy Policy</Link>
+              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Terms of Service</Link>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <a 
+        href="https://wa.me/91XXXXXXXXXX" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-8 right-8 z-[100] w-16 h-16 bg-green-500 rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(34,197,94,0.4)] hover:scale-110 hover:-translate-y-1 transition-all duration-300 group"
+      >
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        <div className="absolute -top-12 right-0 bg-white text-green-600 px-4 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-xl">
+          Consult on WhatsApp
+        </div>
+      </a>
     </footer>
   );
 }
