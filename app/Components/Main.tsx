@@ -3,7 +3,7 @@ import Horoscopes from "./Horoscopes";
 import Services from "./Services";
 
 export default function Main() {
-  
+
   return (
     <main>
       <section className="relative pt-10 pb-20 px-6 lg:pt-20 overflow-hidden">
@@ -26,7 +26,7 @@ export default function Main() {
                 Get Your Kundli Analysis
               </button>
             </div>
-            
+
             {/* Benefits Highlight */}
             <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
@@ -84,7 +84,7 @@ export default function Main() {
             </p>
           </div>
 
-      <Horoscopes/>
+          <Horoscopes />
         </div>
       </section>
 
@@ -120,9 +120,9 @@ export default function Main() {
           <div className="flex-1">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop" 
-                alt="Astrologer" 
+              <img
+                src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop"
+                alt="Astrologer"
                 className="relative rounded-[32px] w-full object-cover aspect-[4/5] border border-white/10"
               />
               <div className="absolute bottom-8 right-8 bg-cosmic-black/80 backdrop-blur-md border border-gold-500/30 p-6 rounded-2xl">
@@ -141,7 +141,7 @@ export default function Main() {
             </h2>
             <div className="space-y-6 text-white/70 text-lg leading-relaxed">
               <p>
-                Namaste! I am <strong>Acharya Saurabh</strong>, a dedicated Vedic astrologer with over 15 years of experience in helping individuals find clarity and purpose.
+                Namaste! I am <strong>Acharya Ravi</strong>, a dedicated Vedic astrologer with over 25 years of experience in helping individuals find clarity and purpose.
               </p>
               <p>
                 My approach combines traditional <strong>Vedic Astrology</strong> with <strong>KP System</strong> and spiritual philosophy. I believe astrology is not just about predicting the future, but about empowering you to make the right choices today.

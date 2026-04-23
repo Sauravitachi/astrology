@@ -9,13 +9,17 @@ export async function GET(request: Request) {
   const fileMap: Record<string, { name: string; type: string }> = {
     wheel: { name: 'zodiaco.png', type: 'image/png' },
     bg: { name: 'page.jpeg', type: 'image/jpeg' },
+    career: { name: 'page.jpeg', type: 'image/jpeg' },
+    marriage: { name: 'page.jpeg', type: 'image/jpeg' },
+    love: { name: 'page.jpeg', type: 'image/jpeg' },
+    family: { name: 'page.jpeg', type: 'image/jpeg' },
+    business: { name: 'page.jpeg', type: 'image/jpeg' },
+    kundli: { name: 'page.jpeg', type: 'image/jpeg' },
+    remedies: { name: 'page.jpeg', type: 'image/jpeg' },
+    consultation: { name: 'page.jpeg', type: 'image/jpeg' },
   };
 
-  const fileInfo = type ? fileMap[type] : null;
-
-  if (!fileInfo) {
-    return new Response('Invalid image type', { status: 400 });
-  }
+  const fileInfo = type ? fileMap[type] : fileMap.bg;
 
   const filePath = path.resolve(process.cwd(), 'public', fileInfo.name);
 

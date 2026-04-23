@@ -1,6 +1,11 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "About Acharya Ravi | Vedic Astrologer & Spiritual Guide | Sashtravani",
+  description: "Learn about Acharya Ravi, a renowned Vedic astrologer with 25+ years of experience in helping people find clarity and purpose through ancient cosmic wisdom.",
+};
 
 const CheckIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-400">

@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Business & Financial Astrology | Strategic Growth Guidance | Sashtravani",
+  description: "Scale your business with celestial strategy. Expert Vedic astrology for business naming, launch dates, and financial risk assessment.",
+};
 
 export default function BusinessPage() {
   return (

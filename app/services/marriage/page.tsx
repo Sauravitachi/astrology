@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Marriage Astrology & Kundli Milan | Expert Matchmaking | Sashtravani",
+  description: "Ensure a harmonious and successful marriage with expert Kundli matching and relationship guidance. Discover cosmic compatibility through Vedic wisdom.",
+};
 
 export default function MarriagePage() {
   return (

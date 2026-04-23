@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Cosmic Insights & Astrology Blog | Sashtravani",
+  description: "Stay updated with the latest celestial trends, rituals, and astrological wisdom. From Mercury retrograde guides to lunar rituals and life cycles.",
+};
 
 const posts = [
   {

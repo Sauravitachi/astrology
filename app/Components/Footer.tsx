@@ -27,9 +27,14 @@ export default function Footer() {
               Unlocking the cosmic secrets of your soul. Guided by stars, driven by intuition, we provide premium astrological insights for your spiritual journey.
             </p>
             <div className="flex gap-4">
-              {['FB', 'TW', 'IG', 'LI'].map((social) => (
-                <div key={social} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-xs text-white/50 hover:border-gold-500 hover:text-gold-400 transition-all cursor-pointer bg-white/5">
-                  {social}
+              {[
+                { name: 'Facebook', id: 'FB' },
+                { name: 'Twitter', id: 'TW' },
+                { name: 'Instagram', id: 'IG' },
+                { name: 'LinkedIn', id: 'LI' }
+              ].map((social) => (
+                <div key={social.id} aria-label={social.name} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-xs text-white/50 hover:border-gold-500 hover:text-gold-400 transition-all cursor-pointer bg-white/5">
+                  {social.id}
                 </div>
               ))}
             </div>

@@ -1,14 +1,15 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
+
+export const metadata: Metadata = {
+  title: "In-Depth Astrology Consultation | Personal Life Guidance | Sashtravani",
+  description: "Experience a transformative personal session. Get holistic solutions for life's most complex questions and spiritual growth through expert astrological guidance.",
+};
 
 export default function ConsultationPage() {
   return (
-    <div className="min-h-screen bg-deep-space">
-      <Header />
-      
-      <main className="pt-32 pb-20 px-6">
+    <div className="min-h-screen">
+      <main className="pt-20 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <section className="relative py-20 overflow-hidden rounded-3xl glass-card border-gold-500/10 mb-16">
@@ -69,8 +70,6 @@ export default function ConsultationPage() {
           </section>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

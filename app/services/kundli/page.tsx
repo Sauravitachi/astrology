@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Kundli Analysis & Birth Chart Reading | Expert Vedic Astrology | Sashtravani",
+  description: "Unlock the blueprint of your soul. Get a detailed Kundli analysis covering planetary positions, Dasha periods, and life predictions from expert astrologers.",
+};
 
 export default function KundliPage() {
   return (

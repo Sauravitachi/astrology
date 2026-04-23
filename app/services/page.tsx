@@ -1,6 +1,11 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: "Astrology Services | Kundli Analysis, Marriage & Career | Sashtravani",
+  description: "Explore our comprehensive Vedic astrology services. From Kundli matching and career guidance to family harmony and spiritual growth consultations.",
+};
 
 const services = [
   {

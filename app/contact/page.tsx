@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Contact Acharya Ravi | Book Your Astrology Consultation | Sashtravani",
+  description: "Connect with Acharya Ravi for personalized astrology consultations. Reach out for guidance on career, love, finance, and spiritual growth.",
+};
 
 export default function ContactPage() {
   return (

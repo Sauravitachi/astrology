@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Career Astrology & Professional Growth Guidance | Sashtravani",
+  description: "Navigate your career journey with cosmic confidence. Get expert Vedic astrology guidance for career path identification, promotions, and business success.",
+};
 
 export default function CareerPage() {
   return (

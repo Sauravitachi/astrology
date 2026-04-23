@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Love Astrology & Relationship Compatibility | Sashtravani",
+  description: "Find your soulmate and nurture your bonds. Expert Vedic astrology for relationship compatibility, marriage timing, and emotional harmony.",
+};
 
 export default function LovePage() {
   return (

@@ -1,14 +1,15 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
-import Header from '../../Components/Header';
-import Footer from '../../Components/Footer';
+
+export const metadata: Metadata = {
+  title: "Family Astrology & Relationship Harmony | Sashtravani",
+  description: "Foster harmony and understanding within your home. Expert Vedic astrology for family conflict resolution and ancestral pattern analysis.",
+};
 
 export default function FamilyPage() {
   return (
-    <div className="min-h-screen bg-deep-space">
-      <Header />
-      
-      <main className="pt-32 pb-20 px-6">
+    <div className="min-h-screen">
+      <main className="pt-20 pb-20 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Hero Section */}
           <section className="relative py-20 overflow-hidden rounded-3xl glass-card border-gold-500/10 mb-16">
@@ -69,8 +70,6 @@ export default function FamilyPage() {
           </section>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }

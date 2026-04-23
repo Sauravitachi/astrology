@@ -1,5 +1,10 @@
-"use client";
+import type { Metadata } from "next";
 import React from 'react';
+
+export const metadata: Metadata = {
+  title: "Vedic Remedies & Planetary Healing | Gemstone & Mantra | Sashtravani",
+  description: "Transform your life through ancient Vedic wisdom. Explore simple and powerful remedies including gemstones, mantras, and rituals to balance your cosmic energy.",
+};
 
 export default function RemediesPage() {
   return (
