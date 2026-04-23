@@ -20,7 +20,7 @@ export default function Footer() {
                 </div>
               </div>
               <span className="text-2xl font-display font-bold text-white tracking-tight">
-                Astro<span className="text-gradient-gold">Sphere</span>
+                Sashtra<span className="text-gradient-gold">vani</span>
               </span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
@@ -86,7 +86,7 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white/40"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                 </div>
-                <span>contact@astrosphere.com</span>
+                <span>contact@sashtravani.com</span>
               </li>
             </ul>
           </div>
@@ -100,7 +100,7 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-white/20 text-xs">© 2026 AstroSphere. Crafted with celestial magic.</p>
+            <p className="text-white/20 text-xs">© 2026 Sashtravani. Crafted with celestial magic.</p>
             <div className="flex gap-8">
               <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Privacy Policy</Link>
               <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Terms of Service</Link>

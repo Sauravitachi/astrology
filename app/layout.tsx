@@ -17,8 +17,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AstroSphere | Premium Astrology & Cosmic Insights",
-  description: "Explore your cosmic destiny with premium astrological readings, natal charts, and daily insights.",
+  title: "Sashtravani | Premium Astrology & Cosmic Insights",
+  description: "Explore your cosmic destiny with Sashtravani's premium astrological readings, natal charts, and daily insights.",
 };
 
 export default function RootLayout({

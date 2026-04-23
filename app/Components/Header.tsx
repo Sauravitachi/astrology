@@ -17,17 +17,17 @@ export default function Header() {
 
     const navLinks = [
         { name: 'Home', href: '/' },
-        { name: 'About', href: '/#about' },
+        { name: 'About', href: '/about' },
         { 
             name: 'Services', 
             href: '/services',
             subLinks: [
-                { name: 'Kundli Analysis', href: '/services/kundli-analysis' },
-                { name: 'Love & Relationship', href: '/services/love-relationship' },
-                { name: 'Career & Job', href: '/services/career-job-prediction' },
-                { name: 'Business & Finance', href: '/services/business-finance' },
-                { name: 'Marriage Matching', href: '/services/marriage-matching' },
-                { name: 'Remedies', href: '/services/effective-remedies' },
+                { name: 'Kundli Analysis', href: '/services/kundli' },
+                { name: 'Love & Relationship', href: '/services/love' },
+                { name: 'Career & Job', href: '/services/career' },
+                { name: 'Business & Finance', href: '/services/business' },
+                { name: 'Marriage Matching', href: '/services/marriage' },
+                { name: 'Remedies', href: '/services/remedies' },
             ]
         },
         { name: 'How It Works', href: '/#process' },
@@ -55,7 +55,7 @@ export default function Header() {
                         </div>
                     </div>
                     <span className="text-2xl font-display font-bold tracking-tight text-white">
-                        Astro<span className="text-gradient-gold">Sphere</span>
+                        Sashtra<span className="text-gradient-gold">vani</span>
                     </span>
                 </Link>
 

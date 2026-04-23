@@ -106,9 +106,11 @@ export default function Main() {
           <Services />
 
           <div className="text-center">
-            <button className="btn-gold !px-12">
-              View All Services
-            </button>
+            <Link href="/services">
+              <button className="btn-gold !px-12">
+                View All Services
+              </button>
+            </Link>
           </div>
         </div>
       </section>

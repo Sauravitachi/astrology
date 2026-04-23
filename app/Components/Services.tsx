@@ -120,7 +120,17 @@ export default function Services() {
           </div>
           
           <div className="relative z-10 mt-auto">
-            <Link href={`/services/${service.title.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}`} className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all duration-300 group/btn">
+            <Link 
+              href={`/services/${
+                service.title === "Kundli Analysis" ? "kundli" :
+                service.title === "Love & Relationship" ? "love" :
+                service.title === "Career & Job Prediction" ? "career" :
+                service.title === "Business & Finance" ? "business" :
+                service.title === "Marriage Matching" ? "marriage" :
+                "remedies"
+              }`} 
+              className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all duration-300 group/btn"
+            >
               Get Started <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
