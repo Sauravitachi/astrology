@@ -34,7 +34,7 @@ export default function LovePage() {
            <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center lg:order-1">
             <div className="absolute inset-0 bg-celestial-500/5 animate-pulse"></div>
             <img 
-              src="/api/image?type=love" 
+              src="/love.png" 
               alt="Love Harmony" 
               className="relative z-10 w-full h-full object-contain opacity-80"
             />

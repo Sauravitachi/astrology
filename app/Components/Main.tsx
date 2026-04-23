@@ -53,7 +53,7 @@ export default function Main() {
                     }
                   `}} />
                 <img
-                  src="/api/image?type=wheel"
+                  src="/zodiaco.png"
                   alt="Zodiac Wheel"
                   className="w-full h-full object-contain"
                   style={{ animation: 'rotate-360 20s linear infinite' }}

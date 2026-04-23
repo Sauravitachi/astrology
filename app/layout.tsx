@@ -17,6 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sashtravani.com"),
   title: "Sashtravani | Expert Vedic Astrology & Daily Horoscopes",
   description: "Unlock your destiny with Sashtravani. Expert Vedic astrology consultations for career, marriage, and love. Get daily horoscopes and personalized cosmic insights.",
   keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ravi", "Sashtravani"],
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "Sashtravani",
     images: [
       {
-        url: "/api/image?type=bg",
+        url: "/page.jpeg",
         width: 1200,
         height: 630,
         alt: "Sashtravani Astrology Guidance",
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sashtravani | Expert Vedic Astrology",
     description: "Personalized celestial insights for your career, love, and life journey.",
-    images: ["/api/image?type=bg"],
+    images: ["/page.jpeg"],
   },
   alternates: {
     canonical: "https://sashtravani.com",
@@ -63,7 +64,7 @@ export default function RootLayout({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,157,0,0.08)_0%,transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(139,92,246,0.05)_0%,transparent_70%)]"></div>
           <img
-            src="/api/image?type=bg"
+            src="/page.jpeg"
             alt="Background"
             className="w-full h-full object-cover opacity-20 mix-blend-screen"
           />
@@ -81,7 +82,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
               "name": "Sashtravani",
-              "image": "https://sashtravani.com/api/image?type=bg",
+              "image": "https://sashtravani.com/page.jpeg",
               "@id": "https://sashtravani.com",
               "url": "https://sashtravani.com",
               "telephone": "+91-XXXXXXXXXX",

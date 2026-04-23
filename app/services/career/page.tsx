@@ -53,7 +53,7 @@ export default function CareerPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
             <img 
-              src="/api/image?type=career" 
+              src="/career.png" 
               alt="Career Growth" 
               className="relative z-10 w-full h-full object-contain opacity-80"
             />
