@@ -18,8 +18,8 @@ export default function Header() {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'About', href: '/about' },
-        { 
-            name: 'Services', 
+        {
+            name: 'Services',
             href: '/services',
             subLinks: [
                 { name: 'Kundli Analysis', href: '/services/kundli' },
@@ -30,8 +30,7 @@ export default function Header() {
                 { name: 'Remedies', href: '/services/remedies' },
             ]
         },
-        { name: 'How It Works', href: '/#process' },
-        { name: 'Horoscope', href: '/horoscope' },    
+        { name: 'Horoscope', href: '/horoscope' },
         { name: 'Insights', href: '/insights' },
         { name: 'Contact', href: '/contact' },
     ];

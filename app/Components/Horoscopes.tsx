@@ -1,77 +1,213 @@
-export default function Horoscopes() {
-    const zodiacSigns = [
-    { name: 'Aries', date: 'Mar 21 - Apr 19', icon: '♈' },
-    { name: 'Taurus', date: 'Apr 20 - May 20', icon: '♉' },
-    { name: 'Gemini', date: 'May 21 - Jun 20', icon: '♊' },
-    { name: 'Cancer', date: 'Jun 21 - Jul 22', icon: '♋' },
-    { name: 'Leo', date: 'Jul 23 - Aug 22', icon: '♌' },
-    { name: 'Virgo', date: 'Aug 23 - Sep 22', icon: '♍' },
-    { name: 'Libra', date: 'Sep 23 - Oct 22', icon: '♎' },
-    { name: 'Scorpio', date: 'Oct 23 - Nov 21', icon: '♏' },
-    { name: 'Sagittarius', date: 'Nov 22 - Dec 21', icon: '♐' },
-    { name: 'Capricorn', date: 'Dec 22 - Jan 19', icon: '♑' },
-    { name: 'Aquarius', date: 'Jan 20 - Feb 18', icon: '♒' },
-    { name: 'Pisces', date: 'Feb 19 - Mar 20', icon: '♓' },
-  ];
-    return(
-        <>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {zodiacSigns.map((sign, index) => (
-              <div
-                key={sign.name}
-                className="zodiac-card group hover:scale-[1.02] active:scale-95 duration-500"
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {/* Decorative corner elements */}
-                <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-white/10 group-hover:border-gold-500/50 transition-colors duration-500"></div>
-                <div className="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-white/10 group-hover:border-gold-500/50 transition-colors duration-500"></div>
+"use client";
 
-                {/* Floating particles on hover - using deterministic positions to avoid hydration mismatch */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-                  {[...Array(4)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-gold-400/40 rounded-full animate-float"
-                      style={{
-                        top: `${((i + 1) * (index + 1) * 31) % 100}%`,
-                        left: `${((i + 1) * (index + 1) * 37) % 100}%`,
-                        animationDelay: `${i * 0.5}s`,
-                        animationDuration: `${3 + i}s`
-                      }}
-                    ></div>
-                  ))}
+import React, { useState } from "react";
+
+type HoroscopeData = {
+  date_range?: string;
+  description?: string;
+  mood?: string;
+  compatibility?: string;
+  color?: string;
+  lucky_number?: string;
+  lucky_time?: string;
+  current_date?: string;
+};
+
+export default function Horoscopes() {
+  const [selectedSign, setSelectedSign] = useState<string | null>(null);
+  const [horoscopeData, setHoroscopeData] = useState<HoroscopeData | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const zodiacSigns = [
+    { name: "Aries", icon: "/zodiac/aries.png" },
+    { name: "Taurus", icon: "/zodiac/tauraus.png" },
+    { name: "Gemini", icon: "/zodiac/gemini.png" },
+    { name: "Cancer", icon: "/zodiac/cancer.png" },
+    { name: "Leo", icon: "/zodiac/leo.png" },
+    { name: "Virgo", icon: "/zodiac/virgo.png" },
+    { name: "Libra", icon: "/zodiac/libra.png" },
+    { name: "Scorpio", icon: "/zodiac/scorpio.png" },
+    { name: "Sagittarius", icon: "/zodiac/sagittarius.png" },
+    { name: "Capricorn", icon: "/zodiac/capricorn.png" },
+    { name: "Aquarius", icon: "/zodiac/aquarius.png" },
+    { name: "Pisces", icon: "/zodiac/pisces.png" },
+  ];
+
+  const fetchHoroscope = async (sign: string) => {
+    setLoading(true);
+    setSelectedSign(sign);
+
+    try {
+      const response = await fetch(
+        `/api/horoscope?sign=${sign.toLowerCase()}&day=today`,
+        {
+          method: "POST",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch horoscope");
+      }
+
+      const data = await response.json();
+      setHoroscopeData(data);
+    } catch (error) {
+      console.error("Error fetching horoscope:", error);
+      setHoroscopeData(null);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const closeModal = () => {
+    setSelectedSign(null);
+    setHoroscopeData(null);
+  };
+
+  return (
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+        {zodiacSigns.map((sign, index) => {
+          const isActive = selectedSign === sign.name;
+
+          return (
+            <div
+              key={sign.name}
+              onClick={() => fetchHoroscope(sign.name)}
+              className={`group relative cursor-pointer overflow-hidden rounded-[32px] border transition-all duration-500
+                ${
+                  isActive
+                    ? "border-amber-400/60 bg-white/[0.08] shadow-[0_0_40px_rgba(251,191,36,0.18)]"
+                    : "border-white/10 bg-white/[0.04] hover:border-amber-400/40 hover:bg-white/[0.06]"
+                }
+                hover:-translate-y-2`}
+              style={{ transitionDelay: `${index * 40}ms` }}
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,210,120,0.12),_transparent_45%)] opacity-60" />
+              <div className="absolute -top-10 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition-all duration-500" />
+
+              <div className="relative z-10 px-6 pt-8 pb-6 text-center">
+                <div className="relative mx-auto mb-6 h-32 w-32">
+                  <div className="absolute inset-0 rounded-full border border-amber-300/20 group-hover:scale-105 group-hover:border-amber-300/40 transition-all duration-500" />
+                  <div className="absolute inset-[-10px] rounded-full border border-dashed border-white/10 opacity-40 animate-[spin_24s_linear_infinite]" />
+                  <div className="absolute inset-2 rounded-full bg-white/[0.03] backdrop-blur-sm" />
+
+                  <img
+                    src={sign.icon}
+                    alt={sign.name}
+                    className="relative z-10 h-full w-full rounded-full object-cover p-2 drop-shadow-[0_0_30px_rgba(255,180,60,0.18)] transition-all duration-500 group-hover:scale-110"
+                  />
                 </div>
 
-                <div className="relative mb-8 pt-4">
-                  <div className="w-24 h-24 mx-auto flex items-center justify-center relative">
-                    {/* Rotating rings */}
-                    <div className="absolute inset-0 border border-gold-500/10 rounded-full group-hover:border-gold-500/30 group-hover:scale-125 transition-all duration-700"></div>
-                    <div className="absolute inset-[-10px] border border-dashed border-white/5 rounded-full animate-spin-slow-zodiac opacity-30 group-hover:opacity-60"></div>
+                <h3 className="text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
+                  {sign.name}
+                </h3>
 
-                    <span className="text-6xl group-hover:scale-110 group-hover:-rotate-12 transition-all duration-500 relative z-20">
-                      {sign.icon}
-                    </span>
+                <p className="mt-2 text-xs uppercase tracking-[0.35em] text-white/35">
+                  Zodiac Reading
+                </p>
+
+                <div className="mt-7 flex justify-center">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white transition-all duration-300 group-hover:border-amber-400 group-hover:bg-amber-400 group-hover:text-black group-hover:scale-110">
+                    →
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </div>
+          );
+        })}
+      </div>
+
+      {selectedSign && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl">
+          <div className="relative w-full max-w-3xl overflow-hidden rounded-[36px] border border-white/10 bg-[#0a0f1f]/95 p-8 md:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
+            <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-amber-400/10 blur-3xl" />
+            <div className="absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
+
+            <button
+              onClick={closeModal}
+              className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white"
+            >
+              ✕
+            </button>
+
+            {loading ? (
+              <div className="flex flex-col items-center justify-center gap-5 py-24">
+                <div className="h-16 w-16 rounded-full border-4 border-amber-400/20 border-t-amber-400 animate-spin" />
+                <p className="text-sm font-semibold uppercase tracking-[0.4em] text-amber-300">
+                  Reading Stars...
+                </p>
+              </div>
+            ) : horoscopeData ? (
+              <div className="relative z-10">
+                <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
+                  <div className="relative h-24 w-24 md:h-28 md:w-28 rounded-full border border-amber-400/20 bg-white/5 p-2">
+                    <div className="absolute inset-0 rounded-full bg-amber-400/10 blur-xl" />
+                    <img
+                      src={zodiacSigns.find((s) => s.name === selectedSign)?.icon}
+                      alt={selectedSign}
+                      className="relative z-10 h-full w-full rounded-full object-cover"
+                    />
+                  </div>
+
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.35em] text-amber-300/70">
+                      Daily Horoscope
+                    </p>
+                    <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">
+                      {selectedSign}
+                    </h2>
+                    <p className="mt-2 text-sm text-white/50">
+                      {horoscopeData.date_range || "Cosmic reading for today"}
+                    </p>
                   </div>
                 </div>
 
-                <div className="space-y-2 relative z-10">
-                  <h3 className="font-display font-bold text-2xl tracking-wider text-white group-hover:text-gold-400 transition-colors">
-                    {sign.name}
-                  </h3>
-                  <p className="text-xs text-white/30 font-medium tracking-[0.2em] group-hover:text-gold-500/60 transition-colors">
-                    {sign.date}
+                <div className="mt-8 rounded-[28px] border border-white/10 bg-white/[0.04] p-6 md:p-8">
+                  <p className="text-base md:text-lg leading-8 text-white/85">
+                    {horoscopeData.description || "No horoscope available."}
                   </p>
                 </div>
 
-                {/* "Explore" link that appears on hover */}
-                <div className="mt-8 pt-6 border-t border-white/5 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-gold-500">
-                    Read Destiny →
-                  </span>
+                <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+                  {[
+                    { label: "Mood", value: horoscopeData.mood, icon: "✨" },
+                    { label: "Match", value: horoscopeData.compatibility, icon: "💖" },
+                    { label: "Color", value: horoscopeData.color, icon: "🎨" },
+                    { label: "Lucky No.", value: horoscopeData.lucky_number, icon: "🔢" },
+                    { label: "Lucky Time", value: horoscopeData.lucky_time, icon: "🕒" },
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4"
+                    >
+                      <p className="text-[11px] uppercase tracking-[0.25em] text-white/35">
+                        {item.label}
+                      </p>
+                      <div className="mt-3 flex items-center gap-2 text-amber-300 font-semibold">
+                        <span>{item.icon}</span>
+                        <span>{item.value || "—"}</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 border-t border-white/5 pt-5 text-center">
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-white/25">
+                    Celestial Insights for {horoscopeData.current_date || "Today"}
+                  </p>
                 </div>
               </div>
-            ))}
+            ) : (
+              <div className="py-24 text-center text-white/45">
+                Failed to connect with the cosmos. Please try again.
+              </div>
+            )}
           </div>
-        </>
-    )
+        </div>
+      )}
+    </>
+  );
 }
