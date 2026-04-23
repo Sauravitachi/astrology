@@ -60,12 +60,13 @@ export default function Horoscopes() {
     setSelectedSign(sign);
 
     try {
+      const targetUrl = `https://ohmanda.com/api/horoscope/${sign.toLowerCase()}`;
       const response = await fetch(
-        `https://corsproxy.io/?${encodeURIComponent(`https://ohmanda.com/api/horoscope/${sign.toLowerCase()}`)}`
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`
       );
 
       if (!response.ok) {
-        throw new Error("Failed to fetch horoscope");
+        throw new Error(`Proxy error: ${response.status}`);
       }
 
       const data = await response.json();
@@ -81,10 +82,14 @@ export default function Horoscopes() {
           lucky_time: getDeterministicValue(sign, 'lucky_time')
         });
       } else {
-        throw new Error("Invalid response format");
+        throw new Error("Invalid horoscope data format");
       }
-    } catch (error) {
-      console.error("Error fetching horoscope:", error);
+    } catch (error: any) {
+      console.error("Detailed Fetch Error:", error);
+      // Fallback if proxy fails
+      if (error.message.includes('Failed to fetch')) {
+        alert("The horoscope service is currently restricted by a firewall or network. Try again later or disable ad-blockers.");
+      }
       setHoroscopeData(null);
     } finally {
       setLoading(false);
