@@ -33,16 +33,35 @@ export default function Horoscopes() {
     { name: "Pisces", icon: "/zodiac/pisces.png" },
   ];
 
+  const getDeterministicValue = (sign: string, type: string) => {
+    const today = new Date().toISOString().split('T')[0];
+    const seed = sign + today + type;
+    let hash = 0;
+    for (let i = 0; i < seed.length; i++) {
+      hash = (hash << 5) - hash + seed.charCodeAt(i);
+      hash |= 0;
+    }
+    const index = Math.abs(hash);
+
+    const values: Record<string, string[]> = {
+      mood: ['Optimistic', 'Introspective', 'Energetic', 'Devotional', 'Productive', 'Creative', 'Peaceful', 'Ambitious', 'Spiritual', 'Balanced'],
+      compatibility: ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces'],
+      color: ['Saffron', 'Sandalwood', 'Golden', 'Emerald', 'Turquoise', 'Lotus Pink', 'Pearl White', 'Ruby Red', 'Deep Indigo', 'Copper'],
+      lucky_number: ['3', '9', '12', '21', '27', '54', '108', '7', '11', '1'],
+      lucky_time: ['Brahma Muhurta', 'Sunrise', 'Noon', 'Pradosham', 'Sunset', 'Abhijit Muhurta', 'Amrit Kaal', 'Vijay Mahurat']
+    };
+
+    const list = values[type] || ['N/A'];
+    return list[index % list.length];
+  };
+
   const fetchHoroscope = async (sign: string) => {
     setLoading(true);
     setSelectedSign(sign);
 
     try {
       const response = await fetch(
-        `/api/horoscope?sign=${sign.toLowerCase()}&day=today`,
-        {
-          method: "POST",
-        }
+        `https://corsproxy.io/?${encodeURIComponent(`https://ohmanda.com/api/horoscope/${sign.toLowerCase()}`)}`
       );
 
       if (!response.ok) {
@@ -50,7 +69,20 @@ export default function Horoscopes() {
       }
 
       const data = await response.json();
-      setHoroscopeData(data);
+      
+      if (data && data.horoscope) {
+        setHoroscopeData({
+          description: data.horoscope,
+          current_date: data.date,
+          mood: getDeterministicValue(sign, 'mood'),
+          compatibility: getDeterministicValue(sign, 'compatibility'),
+          color: getDeterministicValue(sign, 'color'),
+          lucky_number: getDeterministicValue(sign, 'lucky_number'),
+          lucky_time: getDeterministicValue(sign, 'lucky_time')
+        });
+      } else {
+        throw new Error("Invalid response format");
+      }
     } catch (error) {
       console.error("Error fetching horoscope:", error);
       setHoroscopeData(null);
