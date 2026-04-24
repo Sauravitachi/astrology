@@ -31,7 +31,6 @@ export default function Header() {
             ]
         },
         { name: 'Horoscope', href: '/horoscope' },
-        { name: 'Insights', href: '/insights' },
         { name: 'Contact', href: '/contact' },
     ];
 
