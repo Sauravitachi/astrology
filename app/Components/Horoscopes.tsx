@@ -103,7 +103,7 @@ export default function Horoscopes() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-7">
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-7">
         {zodiacSigns.map((sign, index) => {
           const isActive = selectedSign === sign.name;
 
@@ -122,9 +122,8 @@ export default function Horoscopes() {
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,210,120,0.12),_transparent_45%)] opacity-60" />
               <div className="absolute -top-10 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition-all duration-500" />
-
-              <div className="relative z-10 px-6 pt-8 pb-6 text-center">
-                <div className="relative mx-auto mb-6 h-32 w-32">
+              <div className="relative z-10 px-4 py-6 md:px-6 md:pt-8 md:pb-6 text-center">
+                <div className="relative mx-auto mb-4 md:mb-6 h-24 w-24 md:h-32 md:w-32">
                   <div className="absolute inset-0 rounded-full border border-amber-300/20 group-hover:scale-105 group-hover:border-amber-300/40 transition-all duration-500" />
                   <div className="absolute inset-[-10px] rounded-full border border-dashed border-white/10 opacity-40 animate-[spin_24s_linear_infinite]" />
                   <div className="absolute inset-2 rounded-full bg-white/[0.03] backdrop-blur-sm" />
@@ -136,7 +135,7 @@ export default function Horoscopes() {
                   />
                 </div>
 
-                <h3 className="text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
+                <h3 className="text-xl md:text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
                   {sign.name}
                 </h3>
 
@@ -158,8 +157,8 @@ export default function Horoscopes() {
       </div>
 
       {selectedSign && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl">
-          <div className="relative w-full max-w-3xl overflow-hidden rounded-[36px] border border-white/10 bg-[#0a0f1f]/95 p-8 md:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl overflow-y-auto">
+          <div className="relative w-full max-w-3xl my-auto overflow-hidden rounded-[28px] md:rounded-[36px] border border-white/10 bg-[#0a0f1f]/95 p-6 md:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
             <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-amber-400/10 blur-3xl" />
             <div className="absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
 
@@ -193,7 +192,7 @@ export default function Horoscopes() {
                     <p className="text-xs uppercase tracking-[0.35em] text-amber-300/70">
                       Daily Horoscope
                     </p>
-                    <h2 className="mt-2 text-4xl md:text-5xl font-bold text-white">
+                    <h2 className="mt-2 text-3xl md:text-5xl font-bold text-white">
                       {selectedSign}
                     </h2>
                     <p className="mt-2 text-sm text-white/50">
@@ -202,13 +201,13 @@ export default function Horoscopes() {
                   </div>
                 </div>
 
-                <div className="mt-8 rounded-[28px] border border-white/10 bg-white/[0.04] p-6 md:p-8">
-                  <p className="text-base md:text-lg leading-8 text-white/85">
+                <div className="mt-6 md:mt-8 rounded-[20px] md:rounded-[28px] border border-white/10 bg-white/[0.04] p-5 md:p-8">
+                  <p className="text-sm md:text-lg leading-7 md:leading-8 text-white/85">
                     {horoscopeData.description || "No horoscope available."}
                   </p>
                 </div>
 
-                <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                   {[
                     { label: "Mood", value: horoscopeData.mood, icon: "✨" },
                     { label: "Match", value: horoscopeData.compatibility, icon: "💖" },
@@ -218,14 +217,14 @@ export default function Horoscopes() {
                   ].map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-[22px] border border-white/8 bg-white/[0.04] p-4"
+                      className="rounded-[18px] md:rounded-[22px] border border-white/8 bg-white/[0.04] p-3 md:p-4"
                     >
-                      <p className="text-[11px] uppercase tracking-[0.25em] text-white/35">
+                      <p className="text-[10px] md:text-[11px] uppercase tracking-[0.25em] text-white/35">
                         {item.label}
                       </p>
-                      <div className="mt-3 flex items-center gap-2 text-amber-300 font-semibold">
+                      <div className="mt-2 md:mt-3 flex items-center gap-2 text-amber-300 text-sm md:text-base font-semibold">
                         <span>{item.icon}</span>
-                        <span>{item.value || "—"}</span>
+                        <span className="truncate">{item.value || "—"}</span>
                       </div>
                     </div>
                   ))}

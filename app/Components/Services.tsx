@@ -71,9 +71,9 @@ const featuredServices = [
 
 export default function Services() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {featuredServices.map((service, idx) => (
-        <div key={service.title} className="glass-card p-8 rounded-3xl group hover:border-gold-500/40 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full border border-white/5 relative overflow-hidden">
+        <div key={service.title} className="glass-card p-6 md:p-8 rounded-3xl group hover:border-gold-500/40 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full border border-white/5 relative overflow-hidden">
           {/* Subtle glow effect on hover */}
           <div className="absolute inset-0 bg-linear-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           

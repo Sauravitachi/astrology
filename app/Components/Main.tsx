@@ -6,37 +6,37 @@ export default function Main() {
 
   return (
     <main>
-      <section className="relative pt-10 pb-20 px-6 lg:pt-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
-          <div className="flex-1 animate-in fade-in slide-in-from-left-10 duration-1000">
+      <section className="relative pt-10 pb-16 px-6 lg:pt-20 lg:pb-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+          <div className="flex-1 animate-in fade-in slide-in-from-left-10 duration-1000 text-center lg:text-left">
             <div className="space-y-4">
-              <h3 className="text-xl font-bold text-gold-400 tracking-wide">Personalized Celestial Insights</h3>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] text-white tracking-tight">
-                Get Accurate <span className="text-gradient-gold text-nowrap">Astrology Guidance</span> for Career, Love & Finance
+              <h3 className="text-lg md:text-xl font-bold text-gold-400 tracking-wide">Personalized Celestial Insights</h3>
+              <h1 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] text-white tracking-tight">
+                Get Accurate <span className="text-gradient-gold lg:text-nowrap">Astrology Guidance</span> for Career, Love & Finance
               </h1>
             </div>
-            <p className="text-white/60 max-w-xl leading-relaxed text-lg pt-4">
+            <p className="text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed text-base md:text-lg pt-4">
               Unlock the secrets of your destiny with Vedic wisdom. Our expert guidance helps you navigate life's challenges and seize opportunities in career, relationships, and personal growth.
             </p>
-            <div className="pt-8 flex flex-wrap gap-4">
-              <button className="btn-gold !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)]">
+            <div className="pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)]">
                 Book Consultation
               </button>
-              <button className="px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">
+              <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">
                 Get Your Kundli Analysis
               </button>
             </div>
 
             {/* Benefits Highlight */}
-            <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
                 { label: "Accurate Predictions", icon: "✨" },
                 { label: "Vedic Solutions", icon: "📜" },
                 { label: "100% Confidential", icon: "🔒" }
               ].map((benefit) => (
-                <div key={benefit.label} className="flex items-center gap-3">
-                  <span className="text-xl">{benefit.icon}</span>
-                  <span className="text-sm font-medium text-white/80">{benefit.label}</span>
+                <div key={benefit.label} className="flex items-center gap-2 md:gap-3 justify-center lg:justify-start">
+                  <span className="text-lg md:text-xl">{benefit.icon}</span>
+                  <span className="text-xs md:text-sm font-medium text-white/80">{benefit.label}</span>
                 </div>
               ))}
             </div>
@@ -52,18 +52,20 @@ export default function Main() {
                       to { transform: rotate(360deg); }
                     }
                   `}} />
-                <img
-                  src="/zodiaco.png"
-                  alt="Zodiac Wheel"
-                  className="w-full h-full object-contain"
-                  style={{ animation: 'rotate-360 20s linear infinite' }}
-                />
+                <Link href="/horoscope" className="cursor-pointer">
+                  <img
+                    src="/zodiaco.png"
+                    alt="Zodiac Wheel"
+                    className="w-full h-full object-contain"
+                    style={{ animation: 'rotate-360 20s linear infinite' }}
+                  />
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section id="horoscope" className="relative py-32 px-6 overflow-hidden">
+      <section id="horoscope" className="relative py-20 lg:py-32 px-6 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
           <div className="glow-orb w-[600px] h-[600px] top-[-300px] left-[-100px] opacity-10"></div>
@@ -76,10 +78,10 @@ export default function Main() {
               <span className="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
               Celestial Guidance
             </div>
-            <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tight">
+            <h2 className="text-4xl md:text-7xl font-display font-bold tracking-tight">
               Daily <span className="text-gradient-gold">Horoscopes</span>
             </h2>
-            <p className="text-white/40 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-white/40 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
               Connect with the cosmic energies of the day. Choose your sign to reveal your personalized astrological reading and planetary alignments.
             </p>
           </div>
@@ -88,17 +90,17 @@ export default function Main() {
         </div>
       </section>
 
-      <section id="services" className="relative py-32 px-6">
+      <section id="services" className="relative py-20 lg:py-32 px-6">
         <div className="max-w-7xl mx-auto space-y-24">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-celestial-500/20 bg-celestial-500/5 text-celestial-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-celestial-500 animate-pulse"></span>
               Sacred Offerings
             </div>
-            <h2 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white">
+            <h2 className="text-4xl md:text-7xl font-display font-bold tracking-tight text-white">
               Professional <span className="text-gradient-gold">Services</span>
             </h2>
-            <p className="text-white/40 max-w-2xl mx-auto text-lg leading-relaxed">
+            <p className="text-white/40 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
               Explore our specialized astrological services designed to provide clarity, purpose, and spiritual growth on your life journey.
             </p>
           </div>
@@ -115,8 +117,8 @@ export default function Main() {
         </div>
       </section>
       {/* About Section */}
-      <section id="about" className="relative py-32 px-6 bg-white/[0.02]">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+      <section id="about" className="relative py-20 lg:py-32 px-6 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           <div className="flex-1">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000"></div>
@@ -135,11 +137,11 @@ export default function Main() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase">
               Meet Your Guide
             </div>
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-white leading-tight">
-              Compassionate Guidance <br />
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
+              Compassionate Guidance <br className="hidden md:block" />
               <span className="text-gradient-gold">Through Ancient Wisdom</span>
             </h2>
-            <div className="space-y-6 text-white/70 text-lg leading-relaxed">
+            <div className="space-y-6 text-white/70 text-base md:text-lg leading-relaxed">
               <p>
                 Namaste! I am <strong>Acharya Ravi</strong>, a dedicated Vedic astrologer with over 25 years of experience in helping individuals find clarity and purpose.
               </p>
@@ -165,10 +167,10 @@ export default function Main() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="relative py-32 px-6">
+      <section id="process" className="relative py-20 lg:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6 mb-20">
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-white">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white">
               How It <span className="text-gradient-gold">Works</span>
             </h2>
             <p className="text-white/40 max-w-2xl mx-auto text-lg">
@@ -183,7 +185,7 @@ export default function Main() {
               { step: "03", title: "Consultation", desc: "Connect with Acharya Saurabh via WhatsApp Call or Video Call at your scheduled time." },
               { step: "04", title: "Guidance", desc: "Receive your detailed report and personalized remedies for your growth." }
             ].map((item, idx) => (
-              <div key={item.step} className="relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-gold-500/30 transition-all duration-500 group">
+              <div key={item.step} className="relative p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-gold-500/30 transition-all duration-500 group">
                 <div className="text-6xl font-display font-black text-white/5 absolute top-4 right-8 group-hover:text-gold-500/10 transition-colors">{item.step}</div>
                 <div className="w-12 h-12 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center text-gold-400 font-bold mb-6 group-hover:bg-gold-500 group-hover:text-cosmic-black transition-all">
                   {idx + 1}
@@ -197,11 +199,11 @@ export default function Main() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-32 px-6 overflow-hidden">
+      <section className="relative py-20 lg:py-32 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.05)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
+            <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
               Trusted by <span className="text-gradient-gold">Hundreds</span>
             </h2>
             <div className="flex justify-center gap-1 text-gold-500">
@@ -215,7 +217,7 @@ export default function Main() {
               { name: "Priya Singh", text: "The relationship guidance I received was transformative. It helped me understand my partner's perspective and improved our bond significantly.", role: "Entrepreneur" },
               { name: "Amit Patel", text: "Very logical and practical approach. No exaggerations, just pure Vedic wisdom and clear path forward. Highly recommended!", role: "Business Owner" }
             ].map((t, i) => (
-              <div key={i} className="p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group">
+              <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group">
                 <div className="text-4xl text-gold-500/20 mb-6 group-hover:text-gold-500/40 transition-colors">"</div>
                 <p className="text-white/70 italic mb-8 leading-relaxed">
                   {t.text}
@@ -260,13 +262,13 @@ export default function Main() {
       </section>
 
       {/* Tips & Remedies Section */}
-      <section id="tips" className="relative py-32 px-6">
+      <section id="tips" className="relative py-20 lg:py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl space-y-4">
               <div className="text-gold-500 font-bold tracking-[0.2em] uppercase text-xs">Daily Guidance</div>
-              <h2 className="text-5xl font-display font-bold text-white">Celestial <span className="text-gradient-gold">Tips & Remedies</span></h2>
-              <p className="text-white/40 text-lg">Simple Vedic practices to align your energy with the planetary transits and overcome obstacles.</p>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white">Celestial <span className="text-gradient-gold">Tips & Remedies</span></h2>
+              <p className="text-white/40 text-base md:text-lg">Simple Vedic practices to align your energy with the planetary transits and overcome obstacles.</p>
             </div>
             <Link href="/insights" className="px-8 py-3 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all mb-2">
               View All Tips
@@ -291,12 +293,12 @@ export default function Main() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/5 p-10 hover:border-gold-500/20 transition-all">
+            <div className="group relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] bg-white/5 border border-white/5 p-6 md:p-10 hover:border-gold-500/20 transition-all">
               <div className="absolute top-0 right-0 w-32 h-32 bg-celestial-500/5 rounded-bl-full -mr-16 -mt-16 group-hover:bg-celestial-500/10 transition-colors"></div>
               <div className="relative z-10 space-y-6">
                 <div className="w-12 h-12 rounded-2xl bg-celestial-500/10 flex items-center justify-center text-2xl">🕉️</div>
-                <h3 className="text-2xl font-display font-bold text-white">Personal Energy Boost</h3>
-                <p className="text-white/50 leading-relaxed">Chanting the 'Om' mantra for 11 minutes every morning can significantly strengthen your Jupiter, bringing wisdom and prosperity.</p>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-white">Personal Energy Boost</h3>
+                <p className="text-white/50 leading-relaxed text-sm md:text-base">Chanting the 'Om' mantra for 11 minutes every morning can significantly strengthen your Jupiter, bringing wisdom and prosperity.</p>
                 <ul className="space-y-3">
                   {["Wear yellow on Thursdays", "Offer water to Sun at dawn", "Practice mindfulness for 10 mins"].map((t, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/40">
@@ -320,8 +322,8 @@ export default function Main() {
         </div>
 
         <div className="max-w-4xl mx-auto text-center space-y-12">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight">
-            Ancient Wisdom <br />
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight">
+            Ancient Wisdom <br className="hidden md:block" />
             <span className="text-gradient-gold">Modern Guidance</span>
           </h2>
           <div className="space-y-8 text-white/60 leading-relaxed text-lg font-light">

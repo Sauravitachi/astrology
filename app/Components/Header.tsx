@@ -37,8 +37,8 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled
-                    ? 'py-3 bg-cosmic-black/80 backdrop-blur-lg border-b border-gold-500/10 shadow-2xl'
-                    : 'py-6 bg-transparent'
+                ? 'py-3 bg-cosmic-black/80 backdrop-blur-lg border-b border-gold-500/10 shadow-2xl'
+                : 'py-4 lg:py-6 bg-transparent'
                 }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
