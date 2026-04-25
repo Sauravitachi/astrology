@@ -105,7 +105,6 @@ export default function Horoscopes() {
 
 
   return (
-
     <>
       <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-7">
         {zodiacSigns.map((sign, index) => {

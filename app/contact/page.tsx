@@ -25,8 +25,8 @@ export default function ContactPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Your Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   placeholder="Star-seeker"
                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-gold-500/50 transition-all"
                 />
@@ -45,8 +45,8 @@ export default function ContactPage() {
 
             <div className="space-y-2">
               <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">Email Address</label>
-              <input 
-                type="email" 
+              <input
+                type="email"
                 placeholder="email@cosmos.com"
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-gold-500/50 transition-all"
               />
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
             <div className="space-y-2">
               <label className="text-xs font-bold text-white/40 uppercase tracking-widest px-1">How can we guide you?</label>
-              <textarea 
+              <textarea
                 rows={5}
                 placeholder="Share your cosmic inquiry..."
                 className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white placeholder:text-white/10 focus:outline-none focus:border-gold-500/50 transition-all resize-none"
@@ -75,8 +75,8 @@ export default function ContactPage() {
               <div className="space-y-6">
                 {[
                   { icon: '📍', label: 'Address', detail: '777 Nebula Way, Star City, Cosmic Orbit 88' },
-                  { icon: '📞', label: 'Phone', detail: '+1 (555) ASTRO-99' },
-                  { icon: '✉️', label: 'Email', detail: 'oracle@astrosphere.io' },
+                  { icon: '📞', label: 'Phone', detail: '+91 7986006557' },
+                  { icon: '✉️', label: 'Email', detail: 'sashtravani@gmail.com' },
                   { icon: '🕰️', label: 'Hours', detail: '24/7 (Guided by Lunar Cycles)' }
                 ].map((item) => (
                   <div key={item.label} className="flex gap-5 items-start">
@@ -93,17 +93,17 @@ export default function ContactPage() {
             </div>
 
             <div className="h-64 md:h-80 rounded-[2.5rem] overflow-hidden glass-card p-1">
-               <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-void relative">
-                  <img 
-                    src="/api/image?type=map" 
-                    alt="Map" 
-                    className="w-full h-full object-cover opacity-40 grayscale contrast-125"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-4 h-4 bg-gold-400 rounded-full animate-ping"></div>
-                    <div className="w-2 h-2 bg-gold-500 rounded-full absolute"></div>
-                  </div>
-               </div>
+              <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-void relative">
+                <img
+                  src="/api/image?type=map"
+                  alt="Map"
+                  className="w-full h-full object-cover opacity-40 grayscale contrast-125"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gold-400 rounded-full animate-ping"></div>
+                  <div className="w-2 h-2 bg-gold-500 rounded-full absolute"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
