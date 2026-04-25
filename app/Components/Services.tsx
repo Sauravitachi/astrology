@@ -5,7 +5,7 @@ import Link from 'next/link';
 const featuredServices = [
   {
     title: "Kundli Analysis",
-    description: "In-depth birth chart analysis to understand your planetary positions and their impact on your life's journey.",
+    description: "Discover your life's blueprint. Accurate Janam Kundli analysis for deep insights into your personality, hidden strengths, and karmic doshas.",
     details: "Birth chart reading, Dasha analysis, Planet strengths",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -16,7 +16,7 @@ const featuredServices = [
   },
   {
     title: "Love & Relationship",
-    description: "Guidance on finding your soulmate, resolving relationship conflicts, and strengthening emotional bonds.",
+    description: "Kab hogi shaadi? Will my ex come back? Get precise answers for love compatibility, heartbreak, and relationship issues.",
     details: "Compatibility check, Timing of marriage, Relationship remedies",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -26,7 +26,7 @@ const featuredServices = [
   },
   {
     title: "Career & Job Prediction",
-    description: "Clarity on career path, job changes, promotions, and the best time for professional growth.",
+    description: "Naukri ya Vyapar? Find the right career path, overcome job hurdles, and attract wealth with powerful Vedic guidance.",
     details: "Sector selection, Growth periods, Promotion timing",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -37,7 +37,7 @@ const featuredServices = [
   },
   {
     title: "Business & Finance",
-    description: "Strategic advice for business owners and financial planning based on your astrological transits.",
+    description: "Strategic advice for business owners and financial planning to maximize your wealth based on astrological transits.",
     details: "Investment timing, Business expansion, Debt management",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -48,7 +48,7 @@ const featuredServices = [
   },
   {
     title: "Marriage Matching",
-    description: "Traditional Kundli Milan (Gun Milan) and Manglik Dosha analysis for a happy married life.",
+    description: "Sahi Faisla Zindagi Bhar Ke Liye. Detailed Kundli Milan for a happy marriage. We provide genuine remedies for Manglik and Nadi Dosha.",
     details: "Gun Milan, Dosha analysis, Remedy suggestions",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -59,7 +59,7 @@ const featuredServices = [
   },
   {
     title: "Effective Remedies",
-    description: "Simple yet powerful Vedic remedies, gemstones, and ritual suggestions to overcome life's obstacles.",
+    description: "Saral Upay, Asardar Natije. Practical and highly effective remedies (Gemstones, Pujas, Mantras) to clear blockages in your life.",
     details: "Gemstone advice, Mantra chanting, Ritual guidance",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

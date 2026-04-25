@@ -12,27 +12,27 @@ export default function Main() {
             <div className="space-y-4">
               <h3 className="text-lg md:text-xl font-bold text-gold-400 tracking-wide">Personalized Celestial Insights</h3>
               <h1 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] text-white tracking-tight">
-                Get Accurate <span className="text-gradient-gold lg:text-nowrap">Astrology Guidance</span> for Career, Love & Finance
+                Apni Kundli Ka Sach Jaanein. <span className="text-gradient-gold lg:text-nowrap">Unlock Your Destiny</span> with India's Most Trusted Astrologers
               </h1>
             </div>
             <p className="text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed text-base md:text-lg pt-4">
-              Unlock the secrets of your destiny with Vedic wisdom. Our expert guidance helps you navigate life's challenges and seize opportunities in career, relationships, and personal growth.
+              Get accurate predictions, deep Kundli analysis, and simple, effective remedies to overcome obstacles in Love, Career, and Marriage. 100% Confidential. 100% Authentic.
             </p>
             <div className="pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)]">
-                Book Consultation
+                Get Your Free Kundli
               </button>
               <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">
-                Get Your Kundli Analysis
+                Consult Expert Astrologer
               </button>
             </div>
 
             {/* Benefits Highlight */}
             <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
-                { label: "Accurate Predictions", icon: "✨" },
-                { label: "Vedic Solutions", icon: "📜" },
-                { label: "100% Confidential", icon: "🔒" }
+                { label: "Top 1% Verified Experts", icon: "✨" },
+                { label: "100% Private", icon: "🔒" },
+                { label: "No Fear-Mongering", icon: "🕊️" }
               ].map((benefit) => (
                 <div key={benefit.label} className="flex items-center gap-2 md:gap-3 justify-center lg:justify-start">
                   <span className="text-lg md:text-xl">{benefit.icon}</span>
@@ -213,9 +213,9 @@ export default function Main() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Rahul Sharma", text: "Acharya ji's predictions about my career transition were spot on. The remedies he suggested helped me navigate a very difficult phase with peace.", role: "IT Professional" },
-              { name: "Priya Singh", text: "The relationship guidance I received was transformative. It helped me understand my partner's perspective and improved our bond significantly.", role: "Entrepreneur" },
-              { name: "Amit Patel", text: "Very logical and practical approach. No exaggerations, just pure Vedic wisdom and clear path forward. Highly recommended!", role: "Business Owner" }
+              { name: "Rahul", text: "I was struggling with my career for 3 years. Sashtravani's astrologer told me exactly when I'd get a job, and the remedy worked within weeks! Truly blessed.", role: "Mumbai" },
+              { name: "Priya", text: "Mera aur mere partner ka breakup hone wala tha. But Kundli Milan and small remedies saved my relationship. Premium quality guidance!", role: "Delhi" },
+              { name: "Amit", text: "Very different from other apps. The astrologer was polite, explained everything logically, and didn't force expensive pujas. Best platform!", role: "Bangalore" }
             ].map((t, i) => (
               <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group">
                 <div className="text-4xl text-gold-500/20 mb-6 group-hover:text-gold-500/40 transition-colors">"</div>
@@ -344,6 +344,44 @@ export default function Main() {
             <div className="w-12 h-12 rounded-full border border-gold-500/20 flex items-center justify-center animate-bounce">
               <span className="text-gold-500">↓</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="relative py-20 lg:py-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
+              Frequently Asked <span className="text-gradient-gold">Questions</span>
+            </h2>
+            <p className="text-white/50 text-lg">Clear your doubts before making a life-changing decision.</p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                q: "Are the predictions 100% accurate?",
+                a: "Yes, our verified Vedic astrologers use precise planetary calculations to give highly accurate predictions based on your unique birth chart."
+              },
+              {
+                q: "Can astrology really fix my love life?",
+                a: "Absolutely. By analyzing your 5th and 7th houses, we identify the exact root cause of your relationship problems and provide effective, karma-balancing remedies."
+              },
+              {
+                q: "Is my data kept private?",
+                a: "100%. We use strict privacy protocols. Your details and conversations are strictly confidential and never shared."
+              },
+              {
+                q: "Hindi mein baat kar sakte hain?",
+                a: "Haan bilkul! Hamare astrologers Hindi, English aur regional languages mein fluently baat karte hain."
+              }
+            ].map((faq, index) => (
+              <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold-500/20 transition-all">
+                <h3 className="text-lg font-bold text-white mb-2">{faq.q}</h3>
+                <p className="text-white/60 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

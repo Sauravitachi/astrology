@@ -19,8 +19,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sashtravani.com"),
-  title: "Sashtravani | Expert Vedic Astrology & Daily Horoscopes",
-  description: "Unlock your destiny with Sashtravani. Expert Vedic astrology consultations for career, marriage, and love. Get daily horoscopes and personalized cosmic insights.",
+  title: "Talk to Best Astrologers Online | Free Kundli | Sashtravani",
+  description: "Get accurate predictions for Love, Career, and Marriage from India's most trusted Vedic astrologers. Get your Free Kundli & powerful remedies. Consult Now!",
   keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ravi", "Sashtravani"],
   authors: [{ name: "Acharya Ravi" }],
   openGraph: {
