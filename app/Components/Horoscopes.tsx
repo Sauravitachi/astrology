@@ -103,7 +103,7 @@ export default function Horoscopes() {
 
   return (
     <>
-      <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-7">
+      <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-7">
         {zodiacSigns.map((sign, index) => {
           const isActive = selectedSign === sign.name;
 
@@ -122,29 +122,29 @@ export default function Horoscopes() {
             >
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,210,120,0.12),_transparent_45%)] opacity-60" />
               <div className="absolute -top-10 left-1/2 h-24 w-24 -translate-x-1/2 rounded-full bg-amber-400/10 blur-3xl group-hover:bg-amber-400/20 transition-all duration-500" />
-              <div className="relative z-10 px-4 py-6 md:px-6 md:pt-8 md:pb-6 text-center">
-                <div className="relative mx-auto mb-4 md:mb-6 h-24 w-24 md:h-32 md:w-32">
+              <div className="relative z-10 px-2 py-4 md:px-6 md:pt-8 md:pb-6 text-center">
+                <div className="relative mx-auto mb-3 md:mb-6 h-14 w-14 sm:h-20 sm:w-20 md:h-32 md:w-32">
                   <div className="absolute inset-0 rounded-full border border-amber-300/20 group-hover:scale-105 group-hover:border-amber-300/40 transition-all duration-500" />
-                  <div className="absolute inset-[-10px] rounded-full border border-dashed border-white/10 opacity-40 animate-[spin_24s_linear_infinite]" />
-                  <div className="absolute inset-2 rounded-full bg-white/[0.03] backdrop-blur-sm" />
+                  <div className="absolute inset-[-6px] md:inset-[-10px] rounded-full border border-dashed border-white/10 opacity-40 animate-[spin_24s_linear_infinite]" />
+                  <div className="absolute inset-1.5 md:inset-2 rounded-full bg-white/[0.03] backdrop-blur-sm" />
 
                   <img
                     src={sign.icon}
                     alt={sign.name}
-                    className="relative z-10 h-full w-full rounded-full object-cover p-2 drop-shadow-[0_0_30px_rgba(255,180,60,0.18)] transition-all duration-500 group-hover:scale-110"
+                    className="relative z-10 h-full w-full rounded-full object-cover p-1.5 md:p-2 drop-shadow-[0_0_30px_rgba(255,180,60,0.18)] transition-all duration-500 group-hover:scale-110"
                   />
                 </div>
 
-                <h3 className="text-xl md:text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
+                <h3 className="text-[13px] sm:text-base md:text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
                   {sign.name}
                 </h3>
 
-                <p className="mt-2 text-xs uppercase tracking-[0.35em] text-white/35">
-                  Zodiac Reading
+                <p className="mt-1 md:mt-2 text-[8px] md:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.35em] text-white/35">
+                  Zodiac <br className="block sm:hidden" /> Reading
                 </p>
 
-                <div className="mt-7 flex justify-center">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white transition-all duration-300 group-hover:border-amber-400 group-hover:bg-amber-400 group-hover:text-black group-hover:scale-110">
+                <div className="mt-3 md:mt-7 flex justify-center">
+                  <div className="flex h-7 w-7 md:h-12 md:w-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.04] text-white text-[10px] md:text-base transition-all duration-300 group-hover:border-amber-400 group-hover:bg-amber-400 group-hover:text-black group-hover:scale-110">
                     →
                   </div>
                 </div>
