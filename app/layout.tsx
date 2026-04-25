@@ -3,6 +3,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import FloatingWhatsApp from "./Components/FloatingWhatsApp";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -71,10 +72,11 @@ export default function RootLayout({
         </div>
 
         <Header />
-        <main className="relative z-10 pt-24 min-h-screen">
+        <main className="relative pt-24 min-h-screen">
           {children}
         </main>
         <Footer />
+        <FloatingWhatsApp />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

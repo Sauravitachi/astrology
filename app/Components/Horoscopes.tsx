@@ -103,7 +103,7 @@ export default function Horoscopes() {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-7">
+      <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-3 md:gap-7">
         {zodiacSigns.map((sign, index) => {
           const isActive = selectedSign === sign.name;
 
@@ -157,14 +157,14 @@ export default function Horoscopes() {
       </div>
 
       {selectedSign && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl overflow-y-auto">
+        <div className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/85 p-4 backdrop-blur-xl overflow-y-auto">
           <div className="relative w-full max-w-3xl my-auto overflow-hidden rounded-[28px] md:rounded-[36px] border border-white/10 bg-[#0a0f1f]/95 p-6 md:p-10 shadow-[0_20px_80px_rgba(0,0,0,0.55)]">
             <div className="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-amber-400/10 blur-3xl" />
             <div className="absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-purple-500/10 blur-3xl" />
 
             <button
               onClick={closeModal}
-              className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white"
+              className="absolute right-5 top-5 z-50 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:bg-white/10 hover:text-white"
             >
               ✕
             </button>
