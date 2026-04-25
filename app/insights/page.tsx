@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from 'react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Cosmic Insights & Astrology Blog | Sashtravani",
@@ -70,10 +71,11 @@ export default function InsightsPage() {
           <article key={post.title} className={`group cursor-pointer ${idx === 0 ? 'md:col-span-2 lg:col-span-2' : ''}`}>
             <div className={`relative overflow-hidden rounded-[2.5rem] bg-white/5 border border-white/5 mb-6 ${idx === 0 ? 'aspect-[21/9]' : 'aspect-video'}`}>
                <div className="absolute inset-0 bg-linear-to-t from-void via-transparent to-transparent z-10"></div>
-               <img 
-                 src={`/api/image?type=blog_${idx}`} 
+               <Image 
+                 src="/page.jpeg"
                  alt={post.title}
-                 className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
+                 fill
+                 className="object-cover opacity-60 group-hover:scale-105 transition-transform duration-700"
                />
                <div className="absolute top-6 left-6 z-20 px-4 py-1.5 rounded-full bg-gold-400/10 backdrop-blur-md border border-gold-400/20 text-[10px] font-bold text-gold-400 uppercase tracking-widest">
                  {post.category}

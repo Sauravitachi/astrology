@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "About Acharya Ravi | Vedic Astrologer & Spiritual Guide | Sashtravani",
@@ -64,10 +65,12 @@ export default function AboutPage() {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000 animate-pulse-slow"></div>
               <div className="relative rounded-[32px] overflow-hidden border border-white/10 aspect-[4/5]">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop" 
                   alt="Acharya Ravi" 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  fill
+                  priority
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-cosmic-bg via-transparent to-transparent opacity-60"></div>
               </div>
@@ -133,10 +136,11 @@ export default function AboutPage() {
           <div className="relative">
             <div className="aspect-video rounded-3xl overflow-hidden glass-card p-1">
               <div className="w-full h-full rounded-[1.4rem] overflow-hidden relative">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop" 
                   alt="Ancient Wisdom" 
-                  className="w-full h-full object-cover opacity-60 mix-blend-lighten"
+                  fill
+                  className="object-cover opacity-60 mix-blend-lighten"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-cosmic-bg via-transparent to-transparent"></div>
               </div>

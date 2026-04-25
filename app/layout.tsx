@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
+import Image from "next/image";
 import "./globals.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
@@ -64,10 +65,12 @@ export default function RootLayout({
         <div className="fixed inset-0 z-[-1] bg-[#020617]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,157,0,0.08)_0%,transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(139,92,246,0.05)_0%,transparent_70%)]"></div>
-          <img
+          <Image
             src="/page.jpeg"
             alt="Background"
-            className="w-full h-full object-cover opacity-20 mix-blend-screen"
+            fill
+            priority
+            className="object-cover opacity-20 mix-blend-screen"
           />
         </div>
 

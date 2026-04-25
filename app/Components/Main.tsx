@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Horoscopes from "./Horoscopes";
 import Services from "./Services";
 
@@ -53,11 +54,14 @@ export default function Main() {
                     }
                   `}} />
                 <Link href="/horoscope" className="cursor-pointer">
-                  <img
+                  <Image
                     src="/zodiaco.png"
                     alt="Zodiac Wheel"
+                    width={800}
+                    height={800}
                     className="w-full h-full object-contain"
                     style={{ animation: 'rotate-360 20s linear infinite' }}
+                    priority
                   />
                 </Link>
               </div>
@@ -122,9 +126,11 @@ export default function Main() {
           <div className="flex-1">
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000"></div>
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop"
                 alt="Astrologer"
+                width={800}
+                height={1000}
                 className="relative rounded-[32px] w-full object-cover aspect-[4/5] border border-white/10"
               />
               <div className="absolute bottom-8 right-8 bg-cosmic-black/80 backdrop-blur-md border border-gold-500/30 p-6 rounded-2xl">

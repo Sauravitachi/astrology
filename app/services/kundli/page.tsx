@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from 'react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Kundli Analysis & Birth Chart Reading | Expert Vedic Astrology | Sashtravani",
@@ -52,10 +53,12 @@ export default function KundliPage() {
           </div>
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
-            <img 
-              src="/kundli.png" 
+            <Image 
+              src="/page.jpeg" 
               alt="Kundli Chart" 
-              className="relative z-10 w-full h-full object-contain opacity-80"
+              fill
+              priority
+              className="object-contain opacity-80 relative z-10"
             />
           </div>
         </div>

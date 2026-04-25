@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 type HoroscopeData = {
   date_range?: string;
@@ -130,10 +131,11 @@ export default function Horoscopes() {
                   <div className="absolute inset-[-6px] md:inset-[-10px] rounded-full border border-dashed border-white/10 opacity-40 animate-[spin_24s_linear_infinite]" />
                   <div className="absolute inset-1.5 md:inset-2 rounded-full bg-white/[0.03] backdrop-blur-sm" />
 
-                  <img
+                  <Image
                     src={sign.icon}
                     alt={sign.name}
-                    className="relative z-10 h-full w-full rounded-full object-cover p-1.5 md:p-2 drop-shadow-[0_0_30px_rgba(255,180,60,0.18)] transition-all duration-500 group-hover:scale-110"
+                    fill
+                    className="relative z-10 rounded-full object-cover p-1.5 md:p-2 drop-shadow-[0_0_30px_rgba(255,180,60,0.18)] transition-all duration-500 group-hover:scale-110"
                   />
                 </div>
 
@@ -183,10 +185,11 @@ export default function Horoscopes() {
                 <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8">
                   <div className="relative h-24 w-24 md:h-28 md:w-28 rounded-full border border-amber-400/20 bg-white/5 p-2">
                     <div className="absolute inset-0 rounded-full bg-amber-400/10 blur-xl" />
-                    <img
-                      src={zodiacSigns.find((s) => s.name === selectedSign)?.icon}
-                      alt={selectedSign}
-                      className="relative z-10 h-full w-full rounded-full object-cover"
+                    <Image
+                      src={zodiacSigns.find((s) => s.name === selectedSign)?.icon || "/zodiaco.png"}
+                      alt={selectedSign || ""}
+                      fill
+                      className="relative z-10 rounded-full object-cover"
                     />
                   </div>
 

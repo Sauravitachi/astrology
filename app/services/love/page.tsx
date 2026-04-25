@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from 'react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Love Astrology & Relationship Compatibility | Sashtravani",
@@ -33,10 +34,12 @@ export default function LovePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
            <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center lg:order-1">
             <div className="absolute inset-0 bg-celestial-500/5 animate-pulse"></div>
-            <img 
-              src="/love.png" 
+            <Image 
+              src="/page.jpeg" 
               alt="Love Harmony" 
-              className="relative z-10 w-full h-full object-contain opacity-80"
+              fill
+              priority
+              className="object-contain opacity-80 relative z-10"
             />
           </div>
           <div className="space-y-8 lg:order-2">

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import React from 'react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Contact Acharya Ravi | Book Your Astrology Consultation | Sashtravani",
@@ -38,7 +39,6 @@ export default function ContactPage() {
                   <option>Aries</option>
                   <option>Taurus</option>
                   <option>Gemini</option>
-                  {/* ... more signs */}
                 </select>
               </div>
             </div>
@@ -94,10 +94,11 @@ export default function ContactPage() {
 
             <div className="h-64 md:h-80 rounded-[2.5rem] overflow-hidden glass-card p-1">
               <div className="w-full h-full rounded-[2.3rem] overflow-hidden bg-void relative">
-                <img
-                  src="/api/image?type=map"
+                <Image
+                  src="/page.jpeg"
                   alt="Map"
-                  className="w-full h-full object-cover opacity-40 grayscale contrast-125"
+                  fill
+                  className="object-cover opacity-40 grayscale contrast-125"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-4 h-4 bg-gold-400 rounded-full animate-ping"></div>
