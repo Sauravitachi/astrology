@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   description: "Ensure a harmonious and successful marriage with expert Kundli matching and relationship guidance. Discover cosmic compatibility through Vedic wisdom.",
 };
 
+
 export default function MarriagePage() {
   return (
     <div className="min-h-screen">
@@ -16,7 +17,7 @@ export default function MarriagePage() {
           <div className="absolute inset-0 z-[-1]">
             <div className="glow-orb w-[600px] h-[600px] bottom-0 left-0 opacity-10" style={{ background: 'radial-gradient(circle, #f59e0b 0%, transparent 70%)' }}></div>
           </div>
-          
+
           <div className="px-10 space-y-6 text-center">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">
               Sacred Unions
@@ -53,9 +54,9 @@ export default function MarriagePage() {
           </div>
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
-            <Image 
-              src="/page.jpeg" 
-              alt="Marriage Matching" 
+            <Image
+              src="/page.jpeg"
+              alt="Marriage Matching"
               fill
               priority
               className="object-contain opacity-80 relative z-10"
