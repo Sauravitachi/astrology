@@ -70,7 +70,7 @@ export default function Horoscopes() {
       }
 
       const data = await response.json();
-      
+
       if (data && data.horoscope) {
         setHoroscopeData({
           description: data.horoscope,
@@ -101,6 +101,7 @@ export default function Horoscopes() {
     setHoroscopeData(null);
   };
 
+
   return (
     <>
       <div className="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-2 md:gap-7">
@@ -112,10 +113,9 @@ export default function Horoscopes() {
               key={sign.name}
               onClick={() => fetchHoroscope(sign.name)}
               className={`group relative cursor-pointer overflow-hidden rounded-[32px] border transition-all duration-500
-                ${
-                  isActive
-                    ? "border-amber-400/60 bg-white/[0.08] shadow-[0_0_40px_rgba(251,191,36,0.18)]"
-                    : "border-white/10 bg-white/[0.04] hover:border-amber-400/40 hover:bg-white/[0.06]"
+                ${isActive
+                  ? "border-amber-400/60 bg-white/[0.08] shadow-[0_0_40px_rgba(251,191,36,0.18)]"
+                  : "border-white/10 bg-white/[0.04] hover:border-amber-400/40 hover:bg-white/[0.06]"
                 }
                 hover:-translate-y-2`}
               style={{ transitionDelay: `${index * 40}ms` }}
