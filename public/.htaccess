@@ -16,3 +16,26 @@ Options -Indexes
 # Error handling
 ErrorDocument 404 /404.html
 ErrorDocument 403 /forbidden.html
+
+# ----------------------------------------------------------------------
+# Cache Control Settings for Next.js Static Export
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+    # 1. Never cache HTML files. This ensures the browser/CDN always gets 
+    # the latest HTML referencing the correct CSS/JS hashes.
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires 0
+    </FilesMatch>
+
+    # 2. Cache Next.js immutable static assets forever (they have unique hashes in filenames).
+    # We use SetEnvIf to detect requests inside /_next/static/
+    SetEnvIf Request_URI "^/_next/static/" IS_NEXT_STATIC
+    Header set Cache-Control "public, max-age=31536000, immutable" env=IS_NEXT_STATIC
+
+    # 3. Cache images and other media assets for a reasonable time (e.g., 1 week)
+    <FilesMatch "\.(ico|jpg|jpeg|png|gif|svg|webp|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=604800, stale-while-revalidate=86400" env=!IS_NEXT_STATIC
+    </FilesMatch>
+</IfModule>
