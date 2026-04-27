@@ -4,7 +4,7 @@ import Horoscopes from '../Components/Horoscopes';
 
 export default function HoroscopePage() {
   return (
-    <div className="max-w-7xl mx-auto px-6 py-20">
+    <div className="max-w-7xl mx-auto px-6 py-5">
       <div className="text-center mb-24">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 animate-pulse">
           <span className="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
@@ -20,7 +20,7 @@ export default function HoroscopePage() {
 
       <Horoscopes />
 
-      <div className="mt-32 p-12 glass-card rounded-[2.5rem] border-white/5 text-center relative overflow-hidden group">
+      <div className="mt-15 p-12 glass-card rounded-[2.5rem] border-white/5 text-center relative overflow-hidden group">
         <div className="absolute top-1/2 left-0 w-64 h-64 bg-gold-400/10 blur-[100px] -z-10 group-hover:bg-gold-500/20 transition-all duration-700"></div>
         <div className="absolute bottom-0 right-0 w-64 h-64 bg-celestial-500/10 blur-[100px] -z-10 group-hover:bg-celestial-500/20 transition-all duration-700"></div>
 

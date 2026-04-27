@@ -97,7 +97,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section id="services" className="relative py-20 lg:py-32 px-6">
+      <section id="services" className="relative py-10 lg:py-10 px-6">
         <div className="max-w-7xl mx-auto space-y-24">
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-celestial-500/20 bg-celestial-500/5 text-celestial-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">
@@ -142,7 +142,7 @@ export default function Main() {
               </div>
             </div>
           </div>
-          <div className="flex-1 space-y-8">
+          <div className="flex-1">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase">
               {t('meet_guide')}
             </div>
@@ -162,7 +162,7 @@ export default function Main() {
               </p>
             </div>
             <div className="pt-4 grid grid-cols-2 gap-8 border-t border-white/10 mt-8">
-              <div>
+              <div> 
                 <div className="text-gold-400 font-bold mb-1">{t('vedic_specialist')}</div>
                 <div className="text-sm text-white/40 font-light">{t('vedic_specialist_desc')}</div>
               </div>
@@ -246,36 +246,12 @@ export default function Main() {
         </div>
       </section>
 
-      {/* Payment Options Section */}
-      <section className="relative py-20 px-6 border-t border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-2xl font-display font-bold text-white">{t('easy_payment')}</h3>
-            <p className="text-white/40">{t('payment_desc')}</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
-            <div className="flex flex-col items-center gap-2">
-              <div className="h-8 w-20 bg-white/10 rounded flex items-center justify-center font-bold text-white text-xs">G-Pay</div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="h-8 w-20 bg-white/10 rounded flex items-center justify-center font-bold text-white text-xs">PhonePe</div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="h-8 w-20 bg-white/10 rounded flex items-center justify-center font-bold text-white text-xs">Paytm</div>
-            </div>
-            <div className="flex flex-col items-center gap-2">
-              <div className="h-8 w-20 bg-white/10 rounded flex items-center justify-center font-bold text-white text-xs">UPI</div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Tips & Remedies Section */}
-      <section id="tips" className="relative py-20 lg:py-32 px-6">
+      <section id="tips" className="relative py-10 lg:py-10 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl space-y-4">
-              <div className="text-gold-500 font-bold tracking-[0.2em] uppercase text-xs">{t('daily_guidance')}</div>
               <h2 className="text-4xl md:text-5xl font-display font-bold text-white">{t('tips_title')} <span className="text-gradient-gold">{t('tips_span')}</span></h2>
               <p className="text-white/40 text-base md:text-lg">{t('tips_subtitle')}</p>
             </div>
