@@ -16,7 +16,7 @@ type HoroscopeData = {
 };
 
 export default function Horoscopes() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
   const [horoscopeData, setHoroscopeData] = useState<HoroscopeData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -75,8 +75,29 @@ export default function Horoscopes() {
       const data = await response.json();
 
       if (data && data.horoscope) {
+        let description = data.horoscope;
+
+        // Automatic Translation for Hindi
+        if (language === 'hi') {
+          try {
+            
+            const chunks = (description.match(/.{1,450}(\s|$)/g) || [description]) as string[];
+            const translatedChunks = await Promise.all(
+              chunks.map(async (chunk: string) => {
+                const translateUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk.trim())}&langpair=en|hi`;
+                const transRes = await fetch(translateUrl);
+                const transData = await transRes.json();
+                return transData?.responseData?.translatedText || chunk;
+              })
+            );
+            description = translatedChunks.join(' ');
+          } catch (transErr) {
+            console.error("Translation Error:", transErr);
+          }
+        }
+
         setHoroscopeData({
-          description: data.horoscope,
+          description: description,
           current_date: data.date,
           mood: getDeterministicValue(sign, 'mood'),
           compatibility: getDeterministicValue(sign, 'compatibility'),
@@ -89,9 +110,8 @@ export default function Horoscopes() {
       }
     } catch (error: any) {
       console.error("Detailed Fetch Error:", error);
-      // Fallback if proxy fails
       if (error.message.includes('Failed to fetch')) {
-        alert("The horoscope service is currently restricted by a firewall or network. Try again later or disable ad-blockers.");
+        alert("The horoscope service is currently restricted. Try again later.");
       }
       setHoroscopeData(null);
     } finally {
@@ -210,7 +230,7 @@ export default function Horoscopes() {
 
                 <div className="mt-6 md:mt-8 rounded-[20px] md:rounded-[28px] border border-white/10 bg-white/[0.04] p-5 md:p-8">
                   <p className="text-sm md:text-lg leading-7 md:leading-8 text-white/85">
-                    {horoscopeData.description || "No horoscope available."}
+                    {horoscopeData.description || t('failed_cosmos')}
                   </p>
                 </div>
 
