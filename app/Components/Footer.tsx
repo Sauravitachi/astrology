@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="relative border-t border-white/5 pt-20 pb-10 px-6 bg-[#030014]">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-linear-to-r from-transparent via-gold-500/20 to-transparent"></div>
@@ -24,7 +27,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
-              Unlocking the cosmic secrets of your soul. Guided by stars, driven by intuition, we provide premium astrological insights for your spiritual journey.
+              {t('footer_desc')}
             </p>
             <div className="flex gap-4">
               {[
@@ -42,14 +45,14 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Navigation</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t('quick_links')}</h4>
             <ul className="space-y-4">
               {[
-                { name: 'Home', href: '/' },
-                { name: 'About Us', href: '/about' },
-                { name: 'Services', href: '/services' },
+                { name: t('home'), href: '/' },
+                { name: t('about'), href: '/about' },
+                { name: t('services'), href: '/services' },
                 { name: 'Insights', href: '/insights' },
-                { name: 'Contact', href: '/contact' }
+                { name: t('contact'), href: '/contact' }
               ].map((item) => (
                 <li key={item.name}>
                   <Link href={item.href} className="text-white/40 hover:text-gold-400 text-sm transition-colors flex items-center gap-2 group">
@@ -63,9 +66,9 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Our Expertise</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t('our_services')}</h4>
             <ul className="space-y-4">
-              {['Natal Charts', 'Love Compatibility', 'Tarot Reading', 'Palmistry', 'Cosmic Calendar'].map((item) => (
+              {[t('kundli_analysis'), t('love_relationship'), t('career_job'), t('marriage_matching'), t('remedies')].map((item) => (
                 <li key={item}>
                   <Link href="/services" className="text-white/40 hover:text-gold-400 text-sm transition-colors">
                     {item}
@@ -77,7 +80,7 @@ export default function Footer() {
 
           {/* Contact Section */}
           <div className="space-y-6">
-            <h4 className="text-white font-bold text-sm uppercase tracking-widest">Connect with Us</h4>
+            <h4 className="text-white font-bold text-sm uppercase tracking-widest">{t('connect_with_us')}</h4>
             <ul className="space-y-4">
               <li>
                 <a href="https://wa.me/917986006557" className="text-white/40 hover:text-gold-400 text-sm transition-colors flex items-center gap-3 group">
@@ -105,10 +108,10 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <p className="text-white/20 text-xs">© 2026 Sashtravani. Crafted with celestial magic.</p>
+            <p className="text-white/20 text-xs">© 2026 Sashtravani. {t('all_rights_reserved')}.</p>
             <div className="flex gap-8">
-              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Privacy Policy</Link>
-              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">Terms of Service</Link>
+              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">{t('privacy_policy')}</Link>
+              <Link href="#" className="text-white/20 hover:text-white text-[10px] uppercase tracking-widest transition-colors font-bold">{t('terms_service')}</Link>
             </div>
           </div>
         </div>

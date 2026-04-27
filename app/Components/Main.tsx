@@ -1,9 +1,12 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import Horoscopes from "./Horoscopes";
 import Services from "./Services";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function Main() {
+  const { t } = useLanguage();
 
   return (
     <main>
@@ -11,29 +14,29 @@ export default function Main() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           <div className="flex-1 animate-in fade-in slide-in-from-left-10 duration-1000 text-center lg:text-left">
             <div className="space-y-4">
-              <h3 className="text-lg md:text-xl font-bold text-gold-400 tracking-wide">Personalized Celestial Insights</h3>
+              <h3 className="text-lg md:text-xl font-bold text-gold-400 tracking-wide">{t('hero_subtitle')}</h3>
               <h1 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] text-white tracking-tight">
-                Apni Kundli Ka Sach Jaanein. <span className="text-gradient-gold lg:text-nowrap">Unlock Your Destiny</span> with India's Most Trusted Astrologers
+                {t('hero_title_part1')} <span className="text-gradient-gold lg:text-nowrap">{t('hero_title_part2')}</span> {t('hero_title_part3')}
               </h1>
             </div>
             <p className="text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed text-base md:text-lg pt-4">
-              Get accurate predictions, deep Kundli analysis, and simple, effective remedies to overcome obstacles in Love, Career, and Marriage. 100% Confidential. 100% Authentic.
+              {t('hero_description')}
             </p>
             <div className="pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)]">
-                Get Your Free Kundli
+                {t('free_kundli_btn')}
               </button>
               <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">
-                Consult Expert Astrologer
+                {t('consult_expert_btn')}
               </button>
             </div>
 
             {/* Benefits Highlight */}
             <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
-                { label: "Top 1% Verified Experts", icon: "✨" },
-                { label: "100% Private", icon: "🔒" },
-                { label: "No Fear-Mongering", icon: "🕊️" }
+                { label: t('benefit_experts'), icon: "✨" },
+                { label: t('benefit_private'), icon: "🔒" },
+                { label: t('benefit_fear'), icon: "🕊️" }
               ].map((benefit) => (
                 <div key={benefit.label} className="flex items-center gap-2 md:gap-3 justify-center lg:justify-start">
                   <span className="text-lg md:text-xl">{benefit.icon}</span>
@@ -80,13 +83,13 @@ export default function Main() {
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase mb-4 animate-pulse">
               <span className="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
-              Celestial Guidance
+              {t('celestial_guidance')}
             </div>
             <h2 className="text-4xl md:text-7xl font-display font-bold tracking-tight">
-              Daily <span className="text-gradient-gold">Horoscopes</span>
+              {t('daily_horoscope_title')} <span className="text-gradient-gold">{t('daily_horoscope_span')}</span>
             </h2>
             <p className="text-white/40 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Connect with the cosmic energies of the day. Choose your sign to reveal your personalized astrological reading and planetary alignments.
+              {t('daily_horoscope_desc')}
             </p>
           </div>
 
@@ -99,13 +102,13 @@ export default function Main() {
           <div className="text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-celestial-500/20 bg-celestial-500/5 text-celestial-400 text-xs font-bold tracking-[0.3em] uppercase mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-celestial-500 animate-pulse"></span>
-              Sacred Offerings
+              {t('sacred_offerings')}
             </div>
             <h2 className="text-4xl md:text-7xl font-display font-bold tracking-tight text-white">
-              Professional <span className="text-gradient-gold">Services</span>
+              {t('pro_services_title')} <span className="text-gradient-gold">{t('pro_services_span')}</span>
             </h2>
             <p className="text-white/40 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-              Explore our specialized astrological services designed to provide clarity, purpose, and spiritual growth on your life journey.
+              {t('pro_services_desc')}
             </p>
           </div>
 
@@ -114,7 +117,7 @@ export default function Main() {
           <div className="text-center">
             <Link href="/services">
               <button className="btn-gold !px-12">
-                View All Services
+                {t('view_all_services')}
               </button>
             </Link>
           </div>
@@ -134,38 +137,38 @@ export default function Main() {
                 className="relative rounded-[32px] w-full object-cover aspect-[4/5] border border-white/10"
               />
               <div className="absolute bottom-8 right-8 bg-cosmic-black/80 backdrop-blur-md border border-gold-500/30 p-6 rounded-2xl">
-                <div className="text-3xl font-bold text-gold-400">15+</div>
-                <div className="text-xs text-white/60 uppercase tracking-widest font-bold">Years Experience</div>
+                <div className="text-3xl font-bold text-gold-400">25+</div>
+                <div className="text-xs  uppercase tracking-widest font-bold text-black/90">{t('years_experience')}</div>
               </div>
             </div>
           </div>
           <div className="flex-1 space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase">
-              Meet Your Guide
+              {t('meet_guide')}
             </div>
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
-              Compassionate Guidance <br className="hidden md:block" />
-              <span className="text-gradient-gold">Through Ancient Wisdom</span>
+              {t('about_title_part1')} <br className="hidden md:block" />
+              <span className="text-gradient-gold">{t('about_title_part2')}</span>
             </h2>
             <div className="space-y-6 text-white/70 text-base md:text-lg leading-relaxed">
               <p>
-                Namaste! I am <strong>Acharya Ravi</strong>, a dedicated Vedic astrologer with over 25 years of experience in helping individuals find clarity and purpose.
+                {t('about_p1')}
               </p>
               <p>
-                My approach combines traditional <strong>Vedic Astrology</strong> with <strong>KP System</strong> and spiritual philosophy. I believe astrology is not just about predicting the future, but about empowering you to make the right choices today.
+                {t('about_p2')}
               </p>
               <p>
-                Why trust my guidance? I focus on practical, logic-based analysis and provide simple, effective remedies that integrate seamlessly into your modern lifestyle.
+                {t('about_p3')}
               </p>
             </div>
             <div className="pt-4 grid grid-cols-2 gap-8 border-t border-white/10 mt-8">
               <div>
-                <div className="text-gold-400 font-bold mb-1">Vedic Specialist</div>
-                <div className="text-sm text-white/40 font-light">Deep expertise in birth chart analysis and planetary transits.</div>
+                <div className="text-gold-400 font-bold mb-1">{t('vedic_specialist')}</div>
+                <div className="text-sm text-white/40 font-light">{t('vedic_specialist_desc')}</div>
               </div>
               <div>
-                <div className="text-gold-400 font-bold mb-1">Empowerment Focused</div>
-                <div className="text-sm text-white/40 font-light">Practical solutions to overcome obstacles and achieve success.</div>
+                <div className="text-gold-400 font-bold mb-1">{t('empowerment_focused')}</div>
+                <div className="text-sm text-white/40 font-light">{t('empowerment_focused_desc')}</div>
               </div>
             </div>
           </div>
@@ -177,19 +180,19 @@ export default function Main() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6 mb-20">
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white">
-              How It <span className="text-gradient-gold">Works</span>
+              {t('how_it_works')} <span className="text-gradient-gold">{t('how_it_works_span')}</span>
             </h2>
             <p className="text-white/40 max-w-2xl mx-auto text-lg">
-              Getting your personalized astrological guidance is a simple 4-step process.
+              {t('process_desc')}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { step: "01", title: "Send Details", desc: "Provide your Birth Date, Time, and Place via our booking form or WhatsApp." },
-              { step: "02", title: "Payment", desc: "Complete the payment securely using UPI, Paytm, or Google Pay." },
-              { step: "03", title: "Consultation", desc: "Connect with Acharya Saurabh via WhatsApp Call or Video Call at your scheduled time." },
-              { step: "04", title: "Guidance", desc: "Receive your detailed report and personalized remedies for your growth." }
+              { step: "01", title: t('step1_title'), desc: t('step1_desc') },
+              { step: "02", title: t('step2_title'), desc: t('step2_desc') },
+              { step: "03", title: t('step3_title'), desc: t('step3_desc') },
+              { step: "04", title: t('step4_title'), desc: t('step4_desc') }
             ].map((item, idx) => (
               <div key={item.step} className="relative p-6 md:p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-gold-500/30 transition-all duration-500 group">
                 <div className="text-6xl font-display font-black text-white/5 absolute top-4 right-8 group-hover:text-gold-500/10 transition-colors">{item.step}</div>
@@ -210,7 +213,7 @@ export default function Main() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
-              Trusted by <span className="text-gradient-gold">Hundreds</span>
+              {t('trusted_by')} <span className="text-gradient-gold">{t('hundreds')}</span>
             </h2>
             <div className="flex justify-center gap-1 text-gold-500">
               {"★★★★★".split("").map((s, i) => <span key={i} className="text-2xl">{s}</span>)}
@@ -219,22 +222,22 @@ export default function Main() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Rahul", text: "I was struggling with my career for 3 years. Sashtravani's astrologer told me exactly when I'd get a job, and the remedy worked within weeks! Truly blessed.", role: "Mumbai" },
-              { name: "Priya", text: "Mera aur mere partner ka breakup hone wala tha. But Kundli Milan and small remedies saved my relationship. Premium quality guidance!", role: "Delhi" },
-              { name: "Amit", text: "Very different from other apps. The astrologer was polite, explained everything logically, and didn't force expensive pujas. Best platform!", role: "Bangalore" }
-            ].map((t, i) => (
+              { name: "Rahul", text: t('test1_text'), role: "Mumbai" },
+              { name: "Priya", text: t('test2_text'), role: "Delhi" },
+              { name: "Amit", text: t('test3_text'), role: "Bangalore" }
+            ].map((t_item, i) => (
               <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group">
                 <div className="text-4xl text-gold-500/20 mb-6 group-hover:text-gold-500/40 transition-colors">"</div>
                 <p className="text-white/70 italic mb-8 leading-relaxed">
-                  {t.text}
+                  {t_item.text}
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center font-bold text-gold-400">
-                    {t.name[0]}
+                    {t_item.name[0]}
                   </div>
                   <div>
-                    <div className="text-white font-bold">{t.name}</div>
-                    <div className="text-white/40 text-xs uppercase tracking-widest">{t.role}</div>
+                    <div className="text-white font-bold">{t_item.name}</div>
+                    <div className="text-white/40 text-xs uppercase tracking-widest">{t_item.role}</div>
                   </div>
                 </div>
               </div>
@@ -247,8 +250,8 @@ export default function Main() {
       <section className="relative py-20 px-6 border-t border-white/5">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="space-y-4 text-center md:text-left">
-            <h3 className="text-2xl font-display font-bold text-white">Easy Payment Options</h3>
-            <p className="text-white/40">We accept all major UPI apps and digital wallets for your convenience.</p>
+            <h3 className="text-2xl font-display font-bold text-white">{t('easy_payment')}</h3>
+            <p className="text-white/40">{t('payment_desc')}</p>
           </div>
           <div className="flex flex-wrap justify-center gap-8 opacity-60 hover:opacity-100 transition-opacity">
             <div className="flex flex-col items-center gap-2">
@@ -272,12 +275,12 @@ export default function Main() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl space-y-4">
-              <div className="text-gold-500 font-bold tracking-[0.2em] uppercase text-xs">Daily Guidance</div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white">Celestial <span className="text-gradient-gold">Tips & Remedies</span></h2>
-              <p className="text-white/40 text-base md:text-lg">Simple Vedic practices to align your energy with the planetary transits and overcome obstacles.</p>
+              <div className="text-gold-500 font-bold tracking-[0.2em] uppercase text-xs">{t('daily_guidance')}</div>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white">{t('tips_title')} <span className="text-gradient-gold">{t('tips_span')}</span></h2>
+              <p className="text-white/40 text-base md:text-lg">{t('tips_subtitle')}</p>
             </div>
             <Link href="/insights" className="px-8 py-3 rounded-full border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all mb-2">
-              View All Tips
+              {t('view_all_tips')}
             </Link>
           </div>
 
@@ -286,13 +289,13 @@ export default function Main() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-gold-500/5 rounded-bl-full -mr-16 -mt-16 group-hover:bg-gold-500/10 transition-colors"></div>
               <div className="relative z-10 space-y-6">
                 <div className="w-12 h-12 rounded-2xl bg-gold-500/10 flex items-center justify-center text-2xl">🕯️</div>
-                <h3 className="text-2xl font-display font-bold text-white">Harmonizing Your Home</h3>
-                <p className="text-white/50 leading-relaxed">Place a small bowl of rock salt in the north-east corner of your living room to absorb negative energy and promote family peace.</p>
+                <h3 className="text-2xl font-display font-bold text-white">{t('home_harm_title')}</h3>
+                <p className="text-white/50 leading-relaxed">{t('home_harm_desc')}</p>
                 <ul className="space-y-3">
-                  {["Use light yellow colors in study", "Keep entryways clutter-free", "Light a ghee lamp in evening"].map((t, i) => (
+                  {[t('tip1'), t('tip2'), t('tip3')].map((t_tip, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/40">
                       <span className="w-1 h-1 rounded-full bg-gold-500"></span>
-                      {t}
+                      {t_tip}
                     </li>
                   ))}
                 </ul>
@@ -303,13 +306,13 @@ export default function Main() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-celestial-500/5 rounded-bl-full -mr-16 -mt-16 group-hover:bg-celestial-500/10 transition-colors"></div>
               <div className="relative z-10 space-y-6">
                 <div className="w-12 h-12 rounded-2xl bg-celestial-500/10 flex items-center justify-center text-2xl">🕉️</div>
-                <h3 className="text-xl md:text-2xl font-display font-bold text-white">Personal Energy Boost</h3>
-                <p className="text-white/50 leading-relaxed text-sm md:text-base">Chanting the 'Om' mantra for 11 minutes every morning can significantly strengthen your Jupiter, bringing wisdom and prosperity.</p>
+                <h3 className="text-xl md:text-2xl font-display font-bold text-white">{t('energy_boost_title')}</h3>
+                <p className="text-white/50 leading-relaxed text-sm md:text-base">{t('energy_boost_desc')}</p>
                 <ul className="space-y-3">
-                  {["Wear yellow on Thursdays", "Offer water to Sun at dawn", "Practice mindfulness for 10 mins"].map((t, i) => (
+                  {[t('tip4'), t('tip5'), t('tip6')].map((t_tip, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm text-white/40">
                       <span className="w-1 h-1 rounded-full bg-celestial-500"></span>
-                      {t}
+                      {t_tip}
                     </li>
                   ))}
                 </ul>
@@ -329,20 +332,20 @@ export default function Main() {
 
         <div className="max-w-4xl mx-auto text-center space-y-12">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight">
-            Ancient Wisdom <br className="hidden md:block" />
-            <span className="text-gradient-gold">Modern Guidance</span>
+            {t('ancient_wisdom_title')} <br className="hidden md:block" />
+            <span className="text-gradient-gold">{t('modern_guidance_span')}</span>
           </h2>
           <div className="space-y-8 text-white/60 leading-relaxed text-lg font-light">
             <p>
-              Astrology is a profound ancient wisdom that reveals the connection between the movements of celestial bodies and the patterns of our lives. We blend traditional Vedic insights with deep spiritual philosophy to provide a holistic view of your journey.
+              {t('wisdom_p1')}
             </p>
             <p>
-              Our mission is to bring this sacred knowledge to the modern world, combining celestial alignments with spiritual practices like Naam Simran and Seva to guide you toward inner peace and purposeful living.
+              {t('wisdom_p2')}
             </p>
           </div>
           <div className="pt-8">
             <button className="btn-gold !px-12 !py-4 text-lg">
-              Book Your Session Now
+              {t('book_session')}
             </button>
           </div>
 
@@ -359,28 +362,28 @@ export default function Main() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
-              Frequently Asked <span className="text-gradient-gold">Questions</span>
+              {t('faq_title')} <span className="text-gradient-gold">{t('faq_span')}</span>
             </h2>
-            <p className="text-white/50 text-lg">Clear your doubts before making a life-changing decision.</p>
+            <p className="text-white/50 text-lg">{t('faq_subtitle')}</p>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                q: "Are the predictions 100% accurate?",
-                a: "Yes, our verified Vedic astrologers use precise planetary calculations to give highly accurate predictions based on your unique birth chart."
+                q: t('faq1_q'),
+                a: t('faq1_a')
               },
               {
-                q: "Can astrology really fix my love life?",
-                a: "Absolutely. By analyzing your 5th and 7th houses, we identify the exact root cause of your relationship problems and provide effective, karma-balancing remedies."
+                q: t('faq2_q'),
+                a: t('faq2_a')
               },
               {
-                q: "Is my data kept private?",
-                a: "100%. We use strict privacy protocols. Your details and conversations are strictly confidential and never shared."
+                q: t('faq3_q'),
+                a: t('faq3_a')
               },
               {
-                q: "Hindi mein baat kar sakte hain?",
-                a: "Haan bilkul! Hamare astrologers Hindi, English aur regional languages mein fluently baat karte hain."
+                q: t('faq4_q'),
+                a: t('faq4_a')
               }
             ].map((faq, index) => (
               <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold-500/20 transition-all">

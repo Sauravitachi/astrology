@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useLanguage } from "../context/LanguageContext";
 
 type HoroscopeData = {
   date_range?: string;
@@ -15,23 +16,24 @@ type HoroscopeData = {
 };
 
 export default function Horoscopes() {
+  const { t } = useLanguage();
   const [selectedSign, setSelectedSign] = useState<string | null>(null);
   const [horoscopeData, setHoroscopeData] = useState<HoroscopeData | null>(null);
   const [loading, setLoading] = useState(false);
 
   const zodiacSigns = [
-    { name: "Aries", icon: "/zodiac/aries.png" },
-    { name: "Taurus", icon: "/zodiac/tauraus.png" },
-    { name: "Gemini", icon: "/zodiac/gemini.png" },
-    { name: "Cancer", icon: "/zodiac/cancer.png" },
-    { name: "Leo", icon: "/zodiac/leo.png" },
-    { name: "Virgo", icon: "/zodiac/virgo.png" },
-    { name: "Libra", icon: "/zodiac/libra.png" },
-    { name: "Scorpio", icon: "/zodiac/scorpio.png" },
-    { name: "Sagittarius", icon: "/zodiac/sagittarius.png" },
-    { name: "Capricorn", icon: "/zodiac/capricorn.png" },
-    { name: "Aquarius", icon: "/zodiac/aquarius.png" },
-    { name: "Pisces", icon: "/zodiac/pisces.png" },
+    { name: "Aries", displayName: t('aries'), icon: "/zodiac/aries.png" },
+    { name: "Taurus", displayName: t('taurus'), icon: "/zodiac/tauraus.png" },
+    { name: "Gemini", displayName: t('gemini'), icon: "/zodiac/gemini.png" },
+    { name: "Cancer", displayName: t('cancer'), icon: "/zodiac/cancer.png" },
+    { name: "Leo", displayName: t('leo'), icon: "/zodiac/leo.png" },
+    { name: "Virgo", displayName: t('virgo'), icon: "/zodiac/virgo.png" },
+    { name: "Libra", displayName: t('libra'), icon: "/zodiac/libra.png" },
+    { name: "Scorpio", displayName: t('scorpio'), icon: "/zodiac/scorpio.png" },
+    { name: "Sagittarius", displayName: t('sagittarius'), icon: "/zodiac/sagittarius.png" },
+    { name: "Capricorn", displayName: t('capricorn'), icon: "/zodiac/capricorn.png" },
+    { name: "Aquarius", displayName: t('aquarius'), icon: "/zodiac/aquarius.png" },
+    { name: "Pisces", displayName: t('pisces'), icon: "/zodiac/pisces.png" },
   ];
 
   const getDeterministicValue = (sign: string, type: string) => {
@@ -140,11 +142,11 @@ export default function Horoscopes() {
                 </div>
 
                 <h3 className="text-[13px] sm:text-base md:text-[28px] font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">
-                  {sign.name}
+                  {sign.displayName}
                 </h3>
 
                 <p className="mt-1 md:mt-2 text-[8px] md:text-xs uppercase tracking-[0.1em] sm:tracking-[0.2em] md:tracking-[0.35em] text-white/35">
-                  Zodiac <br className="block sm:hidden" /> Reading
+                  {t('zodiac_reading')}
                 </p>
 
                 <div className="mt-3 md:mt-7 flex justify-center">
@@ -177,7 +179,7 @@ export default function Horoscopes() {
               <div className="flex flex-col items-center justify-center gap-5 py-24">
                 <div className="h-16 w-16 rounded-full border-4 border-amber-400/20 border-t-amber-400 animate-spin" />
                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-amber-300">
-                  Reading Stars...
+                  {t('reading_stars')}
                 </p>
               </div>
             ) : horoscopeData ? (
@@ -195,13 +197,13 @@ export default function Horoscopes() {
 
                   <div>
                     <p className="text-xs uppercase tracking-[0.35em] text-amber-300/70">
-                      Daily Horoscope
+                      {t('horoscope_subtitle')}
                     </p>
                     <h2 className="mt-2 text-3xl md:text-5xl font-bold text-white">
-                      {selectedSign}
+                      {zodiacSigns.find((s) => s.name === selectedSign)?.displayName || selectedSign}
                     </h2>
                     <p className="mt-2 text-sm text-white/50">
-                      {horoscopeData.date_range || "Cosmic reading for today"}
+                      {horoscopeData.date_range || t('cosmic_reading')}
                     </p>
                   </div>
                 </div>
@@ -214,11 +216,11 @@ export default function Horoscopes() {
 
                 <div className="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                   {[
-                    { label: "Mood", value: horoscopeData.mood, icon: "✨" },
-                    { label: "Match", value: horoscopeData.compatibility, icon: "💖" },
-                    { label: "Color", value: horoscopeData.color, icon: "🎨" },
-                    { label: "Lucky No.", value: horoscopeData.lucky_number, icon: "🔢" },
-                    { label: "Lucky Time", value: horoscopeData.lucky_time, icon: "🕒" },
+                    { label: t('mood_label'), value: horoscopeData.mood, icon: "✨" },
+                    { label: t('match_label'), value: horoscopeData.compatibility, icon: "💖" },
+                    { label: t('color_label'), value: horoscopeData.color, icon: "🎨" },
+                    { label: t('lucky_no_label'), value: horoscopeData.lucky_number, icon: "🔢" },
+                    { label: t('lucky_time_label'), value: horoscopeData.lucky_time, icon: "🕒" },
                   ].map((item) => (
                     <div
                       key={item.label}
@@ -237,13 +239,13 @@ export default function Horoscopes() {
 
                 <div className="mt-8 border-t border-white/5 pt-5 text-center">
                   <p className="text-[10px] uppercase tracking-[0.35em] text-white/25">
-                    Celestial Insights for {horoscopeData.current_date || "Today"}
+                    {t('celestial_insights_for')} {horoscopeData.current_date || "Today"}
                   </p>
                 </div>
               </div>
             ) : (
               <div className="py-24 text-center text-white/45">
-                Failed to connect with the cosmos. Please try again.
+                {t('failed_cosmos')}
               </div>
             )}
           </div>

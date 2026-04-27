@@ -1,75 +1,83 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-
-const featuredServices = [
-  {
-    title: "Kundli Analysis",
-    description: "Discover your life's blueprint. Accurate Janam Kundli analysis for deep insights into your personality, hidden strengths, and karmic doshas.",
-    details: "Birth chart reading, Dasha analysis, Planet strengths",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M2 12h20" />
-        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-      </svg>
-    )
-  },
-  {
-    title: "Love & Relationship",
-    description: "Kab hogi shaadi? Will my ex come back? Get precise answers for love compatibility, heartbreak, and relationship issues.",
-    details: "Compatibility check, Timing of marriage, Relationship remedies",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    )
-  },
-  {
-    title: "Career & Job Prediction",
-    description: "Naukri ya Vyapar? Find the right career path, overcome job hurdles, and attract wealth with powerful Vedic guidance.",
-    details: "Sector selection, Growth periods, Promotion timing",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
-        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-      </svg>
-    )
-  },
-  {
-    title: "Business & Finance",
-    description: "Strategic advice for business owners and financial planning to maximize your wealth based on astrological transits.",
-    details: "Investment timing, Business expansion, Debt management",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="12" y1="1" x2="12" y2="23" />
-        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-      </svg>
-    )
-  },
-  {
-    title: "Marriage Matching",
-    description: "Sahi Faisla Zindagi Bhar Ke Liye. Detailed Kundli Milan for a happy marriage. We provide genuine remedies for Manglik and Nadi Dosha.",
-    details: "Gun Milan, Dosha analysis, Remedy suggestions",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
-        <path d="M12 8v8M8 12h8" />
-      </svg>
-    )
-  },
-  {
-    title: "Effective Remedies",
-    description: "Saral Upay, Asardar Natije. Practical and highly effective remedies (Gemstones, Pujas, Mantras) to clear blockages in your life.",
-    details: "Gemstone advice, Mantra chanting, Ritual guidance",
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-      </svg>
-    )
-  }
-];
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Services() {
+  const { t } = useLanguage();
+
+  const featuredServices = [
+    {
+      title: t('s1_title'),
+      description: t('s1_desc'),
+      details: t('s1_details'),
+      slug: "kundli",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2v20M2 12h20" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      )
+    },
+    {
+      title: t('s2_title'),
+      description: t('s2_desc'),
+      details: t('s2_details'),
+      slug: "love",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l8.84-8.84 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      )
+    },
+    {
+      title: t('s3_title'),
+      description: t('s3_desc'),
+      details: t('s3_details'),
+      slug: "career",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="2" y="7" width="20" height="14" rx="2" ry="2" />
+          <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+        </svg>
+      )
+    },
+    {
+      title: t('s4_title'),
+      description: t('s4_desc'),
+      details: t('s4_details'),
+      slug: "business",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="12" y1="1" x2="12" y2="23" />
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        </svg>
+      )
+    },
+    {
+      title: t('s5_title'),
+      description: t('s5_desc'),
+      details: t('s5_details'),
+      slug: "marriage",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" />
+          <path d="M12 8v8M8 12h8" />
+        </svg>
+      )
+    },
+    {
+      title: t('s6_title'),
+      description: t('s6_desc'),
+      details: t('s6_details'),
+      slug: "remedies",
+      icon: (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      )
+    }
+  ];
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
       {featuredServices.map((service, idx) => (
@@ -99,17 +107,10 @@ export default function Services() {
           
           <div className="relative z-10 mt-auto">
             <Link 
-              href={`/services/${
-                service.title === "Kundli Analysis" ? "kundli" :
-                service.title === "Love & Relationship" ? "love" :
-                service.title === "Career & Job Prediction" ? "career" :
-                service.title === "Business & Finance" ? "business" :
-                service.title === "Marriage Matching" ? "marriage" :
-                "remedies"
-              }`} 
+              href={`/services/${service.slug}`} 
               className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all duration-300 group/btn"
             >
-              Get Started <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
+              {t('get_started')} <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
         </div>

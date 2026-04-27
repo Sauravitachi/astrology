@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -15,23 +16,25 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const { language, setLanguage, t } = useLanguage();
+
     const navLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
+        { name: t('home'), href: '/' },
+        { name: t('about'), href: '/about' },
         {
-            name: 'Services',
+            name: t('services'),
             href: '/services',
             subLinks: [
-                { name: 'Kundli Analysis', href: '/services/kundli' },
-                { name: 'Love & Relationship', href: '/services/love' },
-                { name: 'Career & Job', href: '/services/career' },
-                { name: 'Business & Finance', href: '/services/business' },
-                { name: 'Marriage Matching', href: '/services/marriage' },
-                { name: 'Remedies', href: '/services/remedies' },
+                { name: t('kundli_analysis'), href: '/services/kundli' },
+                { name: t('love_relationship'), href: '/services/love' },
+                { name: t('career_job'), href: '/services/career' },
+                { name: t('business_finance'), href: '/services/business' },
+                { name: t('marriage_matching'), href: '/services/marriage' },
+                { name: t('remedies'), href: '/services/remedies' },
             ]
         },
-        { name: 'Horoscope', href: '/horoscope' },
-        { name: 'Contact', href: '/contact' },
+        { name: t('horoscope'), href: '/horoscope' },
+        { name: t('contact'), href: '/contact' },
     ];
 
     return (
@@ -104,6 +107,22 @@ export default function Header() {
 
                 {/* Right Actions */}
                 <div className="hidden lg:flex items-center gap-4">
+                    {/* Language Switcher */}
+                    <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-1">
+                        <button 
+                            onClick={() => setLanguage('en')}
+                            className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50 hover:text-white'}`}
+                        >
+                            EN
+                        </button>
+                        <button 
+                            onClick={() => setLanguage('hi')}
+                            className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'hi' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50 hover:text-white'}`}
+                        >
+                            हिन्दी
+                        </button>
+                    </div>
+
                     <button aria-label="Search" className="p-2.5 rounded-full bg-white/5 border border-white/10 text-white/70 hover:text-gold-400 hover:border-gold-500/30 transition-all">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </button>
@@ -111,7 +130,7 @@ export default function Header() {
                         href="#consult"
                         className="px-6 py-2.5 rounded-full bg-linear-to-r from-gold-600 to-gold-400 text-cosmic-black font-bold text-sm hover:shadow-[0_0_20px_rgba(234,179,8,0.4)] hover:-translate-y-0.5 transition-all duration-300"
                     >
-                        Consult Now
+                        {t('consult_now')}
                     </Link>
                 </div>
 
@@ -161,12 +180,26 @@ export default function Header() {
                             )}
                         </div>
                     ))}
+                    <div className="flex items-center justify-center bg-white/5 border border-white/10 rounded-full p-1 w-fit mx-auto">
+                        <button 
+                            onClick={() => setLanguage('en')}
+                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50'}`}
+                        >
+                            English
+                        </button>
+                        <button 
+                            onClick={() => setLanguage('hi')}
+                            className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${language === 'hi' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50'}`}
+                        >
+                            हिन्दी
+                        </button>
+                    </div>
                     <hr className="border-white/10 my-2" />
                     <a
                         href="#consult"
                         className="w-full py-4 rounded-xl bg-linear-to-r from-gold-600 to-gold-400 text-cosmic-black font-bold text-center"
                     >
-                        Consult Now
+                        {t('consult_now')}
                     </a>
                 </div>
             )}
