@@ -42,7 +42,7 @@ export default function FloatingWhatsApp() {
                 </div>
                 <div className="leading-[1.1]">
                   <div className="text-[11px] font-bold text-gold-500 tracking-[0.2em] uppercase">Acharya</div>
-                  <div className="text-[15px] font-display font-bold text-white tracking-wide uppercase">Ravi</div>
+                  <div className="text-[15px] font-display font-bold text-white tracking-wide uppercase">Ankit</div>
                 </div>
               </div>
               {/* Header right */}

@@ -130,14 +130,14 @@ export default function Main() {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000"></div>
               <Image
-                src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop"
+                src="/ankit.png"
                 alt="Astrologer"
                 width={800}
                 height={1000}
                 className="relative rounded-[32px] w-full object-cover aspect-[4/5] border border-white/10"
               />
               <div className="absolute bottom-8 right-8 bg-cosmic-black/80 backdrop-blur-md border border-gold-500/30 p-6 rounded-2xl">
-                <div className="text-3xl font-bold text-gold-400">25+</div>
+                <div className="text-3xl font-bold text-gold-400">3+</div>
                 <div className="text-xs  uppercase tracking-widest font-bold text-black/90">{t('years_experience')}</div>
               </div>
             </div>
@@ -208,7 +208,7 @@ export default function Main() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-20 lg:py-32 px-6 overflow-hidden">
+      <section className="relative py-10 lg:py-10 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.05)_0%,transparent_70%)] pointer-events-none"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
@@ -298,7 +298,7 @@ export default function Main() {
         </div>
       </section>
 
-      <section className="relative py-40 px-6 overflow-hidden">
+      <section className="relative py-10 px-6 overflow-hidden">
         <div className="absolute inset-0 z-[-1]">
           <div className="absolute inset-0 bg-cosmic-bg/50"></div>
           {/* Abstract organic shapes */}
@@ -306,7 +306,7 @@ export default function Main() {
           <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-celestial-600/10 blur-[150px] rounded-full animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center space-y-12">
+        <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white tracking-tight">
             {t('ancient_wisdom_title')} <br className="hidden md:block" />
             <span className="text-gradient-gold">{t('modern_guidance_span')}</span>

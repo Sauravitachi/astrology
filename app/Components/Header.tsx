@@ -63,8 +63,8 @@ export default function Header() {
                 {/* Desktop Nav */}
                 <nav className="hidden lg:flex items-center gap-1 glass p-1 rounded-full border-white/5">
                     {navLinks.map((link) => (
-                        <div 
-                            key={link.name} 
+                        <div
+                            key={link.name}
                             className="relative group"
                             onMouseEnter={() => setActiveDropdown(link.name)}
                             onMouseLeave={() => setActiveDropdown(null)}
@@ -109,13 +109,13 @@ export default function Header() {
                 <div className="hidden lg:flex items-center gap-4">
                     {/* Language Switcher */}
                     <div className="flex items-center bg-white/5 border border-white/10 rounded-full p-1">
-                        <button 
+                        <button
                             onClick={() => setLanguage('en')}
                             className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50 hover:text-white'}`}
                         >
                             EN
                         </button>
-                        <button 
+                        <button
                             onClick={() => setLanguage('hi')}
                             className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'hi' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50 hover:text-white'}`}
                         >
@@ -181,13 +181,13 @@ export default function Header() {
                         </div>
                     ))}
                     <div className="flex items-center justify-center bg-white/5 border border-white/10 rounded-full p-1 w-fit mx-auto">
-                        <button 
+                        <button
                             onClick={() => setLanguage('en')}
                             className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50'}`}
                         >
                             English
                         </button>
-                        <button 
+                        <button
                             onClick={() => setLanguage('hi')}
                             className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${language === 'hi' ? 'bg-gold-500 text-cosmic-black' : 'text-white/50'}`}
                         >

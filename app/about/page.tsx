@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "About Acharya Ravi | Vedic Astrologer & Spiritual Guide | Sashtravani",
-  description: "Learn about Acharya Ravi, a renowned Vedic astrologer with 25+ years of experience in helping people find clarity and purpose through ancient cosmic wisdom.",
+  title: "About Acharya Ankit | Vedic Astrologer & Spiritual Guide | Sashtravani",
+  description: "Learn about Acharya Ankit, a renowned Vedic astrologer with 3+ years of experience in helping people find clarity and purpose through ancient cosmic wisdom.",
 };
 
 const CheckIcon = () => (
@@ -46,13 +46,13 @@ export default function AboutPage() {
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight">
               About <br />
-              <span className="text-gradient-gold text-nowrap">Acharya Ravi</span>
+              <span className="text-gradient-gold text-nowrap">Acharya Ankit</span>
             </h1>
             <p className="text-white/70 text-xl leading-relaxed max-w-2xl font-light">
               A renowned astrology expert with deep knowledge of Vedic astrology, guiding individuals toward clarity, success, and spiritual balance.
             </p>
             <p className="text-white/50 text-lg leading-relaxed max-w-2xl">
-              With years of experience in analyzing horoscopes and planetary influences, Acharya Ravi has helped countless people make informed life decisions through the ancient lens of cosmic wisdom.
+              With years of experience in analyzing horoscopes and planetary influences, Acharya Ankit has helped countless people make informed life decisions through the ancient lens of cosmic wisdom.
             </p>
             <div className="pt-4">
               <Link href="/contact" className="btn-gold !px-10 !py-4 shadow-[0_0_30px_rgba(234,179,8,0.3)]">
@@ -65,19 +65,19 @@ export default function AboutPage() {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000 animate-pulse-slow"></div>
               <div className="relative rounded-[32px] overflow-hidden border border-white/10 aspect-[4/5]">
-                <Image 
-                  src="https://images.unsplash.com/photo-1515940175183-6798529cb860?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Acharya Ravi" 
+                <Image
+                  src="/ankit.png"
+                  alt="Acharya Ankit"
                   fill
                   priority
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-cosmic-bg via-transparent to-transparent opacity-60"></div>
               </div>
-              
+
               {/* Floating Badge */}
               <div className="absolute -bottom-10 -right-6 glass-card p-8 rounded-2xl border-gold-500/20 animate-float">
-                <div className="text-4xl font-display font-bold text-gradient-gold">25+</div>
+                <div className="text-4xl font-display font-bold text-gradient-gold">3+</div>
                 <div className="text-xs text-white/40 uppercase tracking-widest font-bold">Years of Wisdom</div>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function AboutPage() {
               Areas of <span className="text-gradient-gold">Expertise</span>
             </h2>
             <p className="text-white/40 max-w-2xl mx-auto text-lg leading-relaxed">
-              Acharya Ravi specializes in various dimensions of Vedic sciences to provide comprehensive life solutions.
+              Acharya Ankit specializes in various dimensions of Vedic sciences to provide comprehensive life solutions.
             </p>
           </div>
 
@@ -116,7 +116,7 @@ export default function AboutPage() {
             <h2 className="text-4xl font-display font-bold text-white">Experience & <span className="text-gradient-gold">Knowledge</span></h2>
             <div className="space-y-6 text-white/60 text-lg leading-relaxed">
               <p>
-                With over <strong>25+ years of experience</strong>, Acharya Ravi has studied ancient astrological texts and applies traditional wisdom with modern understanding.
+                With over <strong>3+ years of experience</strong>, Acharya Ankit has studied ancient astrological texts and applies traditional wisdom with modern understanding.
               </p>
               <p>
                 His accurate predictions and practical remedies have earned trust and respect from clients across the globe. He believes in the synthesis of ancient Jyotish with modern psychological insights.
@@ -136,9 +136,9 @@ export default function AboutPage() {
           <div className="relative">
             <div className="aspect-video rounded-3xl overflow-hidden glass-card p-1">
               <div className="w-full h-full rounded-[1.4rem] overflow-hidden relative">
-                <Image 
-                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Ancient Wisdom" 
+                <Image
+                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1000&auto=format&fit=crop"
+                  alt="Ancient Wisdom"
                   fill
                   className="object-cover opacity-60 mix-blend-lighten"
                 />
@@ -179,7 +179,7 @@ export default function AboutPage() {
             <div className="w-16 h-16 rounded-2xl bg-gold-500/10 flex items-center justify-center text-3xl group-hover:rotate-12 transition-transform">🎯</div>
             <h3 className="text-3xl font-display font-bold text-white">Our <span className="text-gradient-gold">Approach</span></h3>
             <p className="text-white/60 text-lg leading-relaxed">
-              Acharya Ravi believes that astrology is not just about predicting the future but about empowering individuals to take the right actions. Their guidance is simple, practical, and focused on positive transformation.
+              Acharya Ankit believes that astrology is not just about predicting the future but about empowering individuals to take the right actions. Their guidance is simple, practical, and focused on positive transformation.
             </p>
           </div>
 

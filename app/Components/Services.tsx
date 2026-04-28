@@ -84,17 +84,17 @@ export default function Services() {
         <div key={service.title} className="glass-card p-6 md:p-8 rounded-3xl group hover:border-gold-500/40 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full border border-white/5 relative overflow-hidden">
           {/* Subtle glow effect on hover */}
           <div className="absolute inset-0 bg-linear-to-br from-gold-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          
+
           <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gold-400 mb-6 group-hover:scale-110 group-hover:bg-gold-500/10 group-hover:text-gold-300 transition-all duration-500 relative z-10">
             {service.icon}
           </div>
-          
+
           <div className="relative z-10 flex-grow">
             <h3 className="text-2xl font-display font-bold mb-3 group-hover:text-gold-400 transition-colors">{service.title}</h3>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
               {service.description}
             </p>
-            
+
             <div className="space-y-3 mb-8">
               <div className="flex items-start gap-3">
                 <span className="text-gold-500 mt-1">
@@ -104,10 +104,10 @@ export default function Services() {
               </div>
             </div>
           </div>
-          
+
           <div className="relative z-10 mt-auto">
-            <Link 
-              href={`/services/${service.slug}`} 
+            <Link
+              href={`/services/${service.slug}`}
               className="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold text-white uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all duration-300 group/btn"
             >
               {t('get_started')} <span className="group-hover/btn:translate-x-1 transition-transform">→</span>

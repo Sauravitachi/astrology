@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://sashtravani.com"),
   title: "Talk to Best Astrologers Online | Free Kundli | Sashtravani",
   description: "Get accurate predictions for Love, Career, and Marriage from India's most trusted Vedic astrologers. Get your Free Kundli & powerful remedies. Consult Now!",
-  keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ravi", "Sashtravani"],
-  authors: [{ name: "Acharya Ravi" }],
+  keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ankit", "Sashtravani"],
+  authors: [{ name: "Acharya Ankit" }],
   openGraph: {
     title: "Sashtravani | Premium Astrology & Cosmic Insights",
     description: "Explore your cosmic destiny with expert astrological readings and daily insights.",
@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body 
+      <body
         className={`${outfit.variable} ${inter.variable} bg-void text-white antialiased`}
         style={{ minHeight: '100vh' }}
       >

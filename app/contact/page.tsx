@@ -3,8 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "Contact Acharya Ravi | Book Your Astrology Consultation | Sashtravani",
-  description: "Connect with Acharya Ravi for personalized astrology consultations. Reach out for guidance on career, love, finance, and spiritual growth.",
+  title: "Contact Acharya Ankit | Book Your Astrology Consultation | Sashtravani",
+  description: "Connect with Acharya Ankit for personalized astrology consultations. Reach out for guidance on career, love, finance, and spiritual growth.",
 };
 
 export default function ContactPage() {
