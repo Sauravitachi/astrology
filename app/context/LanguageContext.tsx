@@ -37,6 +37,11 @@ const translations = {
     benefit_experts: "Top 1% Verified Experts",
     benefit_private: "100% Private",
     benefit_fear: "No Fear-Mongering",
+    trusted_badge: "Trusted by 5000+ Seekers Across India",
+    verified_badge: "Verified Vedic Experts",
+    online_count: "12 Experts Online Now",
+    limited_slots: "Limited Free Kundli slots available today!",
+    whatsapp_autofill_msg: "Hi, I want a detailed astrology consultation. My details are:\nName: \nDOB: \nTime: \nPlace: ",
 
     // Horoscope Section
     celestial_guidance: "Celestial Guidance",
@@ -219,6 +224,11 @@ const translations = {
     benefit_experts: "शीर्ष 1% सत्यापित विशेषज्ञ",
     benefit_private: "100% निजी",
     benefit_fear: "कोई डर पैदा करना नहीं",
+    trusted_badge: "पूरे भारत में 5000+ साधकों द्वारा भरोसेमंद",
+    verified_badge: "सत्यापित वैदिक विशेषज्ञ",
+    online_count: "12 विशेषज्ञ अभी ऑनलाइन हैं",
+    limited_slots: "आज के लिए सीमित मुफ्त कुंडली स्लॉट उपलब्ध हैं!",
+    whatsapp_autofill_msg: "नमस्ते, मुझे विस्तृत ज्योतिष परामर्श चाहिए। मेरा विवरण है:\nनाम: \nजन्म तिथि: \nसमय: \nस्थान: ",
 
     // Horoscope Section
     celestial_guidance: "खगोलीय मार्गदर्शन",

@@ -22,19 +22,35 @@ export default function Main() {
             <p className="text-white/60 max-w-xl mx-auto lg:mx-0 leading-relaxed text-base md:text-lg pt-4">
               {t('hero_description')}
             </p>
+            {/* Trust Indicators */}
+            <div className="pt-8 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+              <div className="flex items-center gap-2 bg-gold-500/10 border border-gold-500/20 px-4 py-2 rounded-full">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span className="text-xs font-bold text-gold-400 uppercase tracking-wider">{t('online_count')}</span>
+              </div>
+              <div className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-full">
+                <span className="text-xs font-bold text-white/60 uppercase tracking-wider">⭐ 4.9/5 Rating</span>
+              </div>
+            </div>
+
             <div className="pt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)]">
-                {t('free_kundli_btn')}
+              <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)] relative overflow-hidden group">
+                <span className="relative z-10">{t('free_kundli_btn')}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
               </button>
-              <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all">
-                {t('consult_expert_btn')}
+              <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+                <span className="text-green-500">●</span> {t('consult_expert_btn')}
               </button>
             </div>
 
+            <p className="text-gold-500/80 text-sm font-medium pt-4 animate-pulse">
+              🔥 {t('limited_slots')}
+            </p>
+
             {/* Benefits Highlight */}
-            <div className="pt-12 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+            <div className="pt-10 grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
               {[
-                { label: t('benefit_experts'), icon: "✨" },
+                { label: t('benefit_experts'), icon: "✅" },
                 { label: t('benefit_private'), icon: "🔒" },
                 { label: t('benefit_fear'), icon: "🕊️" }
               ].map((benefit) => (
@@ -162,7 +178,7 @@ export default function Main() {
               </p>
             </div>
             <div className="pt-4 grid grid-cols-2 gap-8 border-t border-white/10 mt-8">
-              <div> 
+              <div>
                 <div className="text-gold-400 font-bold mb-1">{t('vedic_specialist')}</div>
                 <div className="text-sm text-white/40 font-light">{t('vedic_specialist_desc')}</div>
               </div>
@@ -222,22 +238,30 @@ export default function Main() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Rahul", text: t('test1_text'), role: "Mumbai" },
-              { name: "Priya", text: t('test2_text'), role: "Delhi" },
-              { name: "Amit", text: t('test3_text'), role: "Bangalore" }
+              { name: "Rahul", text: t('test1_text'), role: "Mumbai", rating: 5 },
+              { name: "Priya", text: t('test2_text'), role: "Delhi", rating: 5 },
+              { name: "Amit", text: t('test3_text'), role: "Bangalore", rating: 5 }
             ].map((t_item, i) => (
-              <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group">
-                <div className="text-4xl text-gold-500/20 mb-6 group-hover:text-gold-500/40 transition-colors">"</div>
-                <p className="text-white/70 italic mb-8 leading-relaxed">
-                  {t_item.text}
+              <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gold-500/5 rounded-bl-full pointer-events-none group-hover:bg-gold-500/10 transition-colors"></div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(t_item.rating)].map((_, index) => (
+                    <span key={index} className="text-gold-500 text-sm">★</span>
+                  ))}
+                </div>
+                <p className="text-white/70 italic mb-8 leading-relaxed relative z-10">
+                  "{t_item.text}"
                 </p>
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center font-bold text-gold-400">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500/20 to-gold-600/20 flex items-center justify-center font-bold text-gold-400 border border-gold-500/30">
                     {t_item.name[0]}
                   </div>
                   <div>
-                    <div className="text-white font-bold">{t_item.name}</div>
-                    <div className="text-white/40 text-xs uppercase tracking-widest">{t_item.role}</div>
+                    <div className="text-white font-bold flex items-center gap-2">
+                      {t_item.name}
+                      <span className="w-3 h-3 bg-blue-500 rounded-full flex items-center justify-center text-[6px] text-white">✓</span>
+                    </div>
+                    <div className="text-white/40 text-[10px] uppercase tracking-widest">{t_item.role} • Verified</div>
                   </div>
                 </div>
               </div>
@@ -245,6 +269,18 @@ export default function Main() {
           </div>
         </div>
       </section>
+
+      {/* Mobile Sticky CTA */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:hidden bg-gradient-to-t from-cosmic-black via-cosmic-black/95 to-transparent">
+        <div className="flex gap-3 max-w-md mx-auto">
+          <button className="flex-1 btn-gold !py-3 !rounded-xl text-sm font-bold shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+            {t('consult_now')}
+          </button>
+          <button className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white !py-3 !rounded-xl text-sm font-bold">
+            {t('free_kundli_btn')}
+          </button>
+        </div>
+      </div>
 
 
       {/* Tips & Remedies Section */}

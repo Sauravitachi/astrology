@@ -86,45 +86,71 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              "name": "Sashtravani",
-              "image": "https://sashtravani.com/page.jpeg",
-              "@id": "https://sashtravani.com",
-              "url": "https://sashtravani.com",
-              "telephone": "+91-XXXXXXXXXX",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Nebula Way",
-                "addressLocality": "Star City",
-                "postalCode": "000000",
-                "addressCountry": "IN"
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "ProfessionalService",
+                "name": "Sashtravani",
+                "image": "https://sashtravani.com/page.jpeg",
+                "@id": "https://sashtravani.com",
+                "url": "https://sashtravani.com",
+                "telephone": "+91-7986006557",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Vedic Tower",
+                  "addressLocality": "Mohali",
+                  "addressRegion": "Punjab",
+                  "postalCode": "160071",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 31.6340,
+                  "longitude": 74.8723
+                },
+                "priceRange": "$$",
+                "openingHoursSpecification": {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                  "opens": "00:00",
+                  "closes": "23:59"
+                }
               },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 28.6139,
-                "longitude": 77.2090
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://sashtravani.com"
+                  }
+                ]
               },
-              "openingHoursSpecification": {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                  "Saturday",
-                  "Sunday"
-                ],
-                "opens": "00:00",
-                "closes": "23:59"
-              },
-              "sameAs": [
-                "https://facebook.com/sashtravani",
-                "https://instagram.com/sashtravani"
-              ]
-            })
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "Are the predictions accurate?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Yes, our verified Vedic astrologers use precise planetary calculations to give highly accurate predictions based on your unique birth chart."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "Is my data private?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "100%. We use strict privacy protocols. Your details and conversations are strictly confidential."
+                    }
+                  }
+                ]
+              }
+            ])
           }}
         />
       </body>

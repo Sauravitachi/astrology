@@ -19,7 +19,8 @@ export default function FloatingWhatsApp() {
 
   const handleSend = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi Acharya Ji, I would like to consult.\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phoneNumber}\n*Email:* ${formData.email}\n*Country:* ${formData.country}\n*Consultation Type:* ${formData.consultationType}`;
+    const autofill = t('whatsapp_autofill_msg');
+    const text = `${autofill}\n\n*Name:* ${formData.fullName}\n*Phone:* ${formData.phoneNumber}\n*Email:* ${formData.email}\n*Country:* ${formData.country}\n*Consultation Type:* ${formData.consultationType}`;
     const encodedText = encodeURIComponent(text);
     const waUrl = `https://wa.me/917986006557?text=${encodedText}`;
     window.open(waUrl, "_blank");
