@@ -8,6 +8,7 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+    
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
