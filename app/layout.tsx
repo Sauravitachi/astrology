@@ -25,6 +25,12 @@ export const metadata: Metadata = {
   description: "Get accurate predictions for Love, Career, and Marriage from India's most trusted Vedic astrologers. Get your Free Kundli & powerful remedies. Consult Now!",
   keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ankit", "Sashtravani"],
   authors: [{ name: "Acharya Ankit" }],
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: "Sashtravani | Premium Astrology & Cosmic Insights",
     description: "Explore your cosmic destiny with expert astrological readings and daily insights.",

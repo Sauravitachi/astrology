@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 import SocialMedia from "./SocialMedia";
 
@@ -16,16 +17,15 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="relative">
-                <div className="bg-cosmic-black p-1.5 rounded-full border border-gold-500/20">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-400">
-                    <path d="M12 2L15 9H22L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9H9L12 2Z" fill="currentColor" />
-                  </svg>
-                </div>
-              </div>
-              <span className="text-2xl font-display font-bold text-white tracking-tight">
-                Sashtra<span className="text-gradient-gold">vani</span>
-              </span>
+              <Link href="/">
+                <Image
+                  src="/logo.png"
+                  alt="Sashtravani Logo"
+                  width={150}
+                  height={45}
+                  className="h-10 w-auto object-contain brightness-0 invert"
+                />
+              </Link>
             </div>
             <p className="text-white/40 text-sm leading-relaxed">
               {t('footer_desc')}

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '../context/LanguageContext';
 
 export default function Header() {
@@ -8,7 +9,7 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
-    
+
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
@@ -51,9 +52,13 @@ export default function Header() {
                     <div className="relative">
                         <div className="absolute -inset-1 bg-gold-400 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
                         <div className="relative bg-cosmic-black p-1.5 rounded-full border border-gold-500/20">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-gold-400">
-                                <path d="M12 2L15 9H22L16.5 14L18.5 21L12 17L5.5 21L7.5 14L2 9H9L12 2Z" fill="currentColor" />
-                            </svg>
+                            <Image
+                                src="/logo.png"
+                                alt="Sashtravani Logo"
+                                width={40}
+                                height={15}
+                                className="h-8 md:h-8 w-auto object-contain brightness-0 invert"
+                            />
                         </div>
                     </div>
                     <span className="text-2xl font-display font-bold tracking-tight text-white">
