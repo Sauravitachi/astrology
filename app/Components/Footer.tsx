@@ -2,6 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
+import SocialMedia from "./SocialMedia";
 
 export default function Footer() {
   const { t } = useLanguage();
@@ -29,18 +30,7 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed">
               {t('footer_desc')}
             </p>
-            <div className="flex gap-4">
-              {[
-                { name: 'Facebook', id: 'FB' },
-                { name: 'Twitter', id: 'TW' },
-                { name: 'Instagram', id: 'IG' },
-                { name: 'LinkedIn', id: 'LI' }
-              ].map((social) => (
-                <div key={social.id} aria-label={social.name} className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-xs text-white/50 hover:border-gold-500 hover:text-gold-400 transition-all cursor-pointer bg-white/5">
-                  {social.id}
-                </div>
-              ))}
-            </div>
+            <SocialMedia />
           </div>
 
           {/* Quick Links */}
@@ -107,7 +97,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-            <div className="flex flex-col gap-4 items-center md:items-start">
+            {/* <div className="flex flex-col gap-4 items-center md:items-start">
               <span className="text-[10px] uppercase tracking-widest text-white/30 font-bold">{t('easy_payment')}</span>
               <div className="flex gap-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500">
                 <div className="bg-white/10 px-3 py-1 rounded-md border border-white/10 text-[10px] font-bold">UPI</div>
@@ -115,7 +105,7 @@ export default function Footer() {
                 <div className="bg-white/10 px-3 py-1 rounded-md border border-white/10 text-[10px] font-bold">PAYTM</div>
                 <div className="bg-white/10 px-3 py-1 rounded-md border border-white/10 text-[10px] font-bold">SSL SECURE</div>
               </div>
-            </div>
+            </div> */}
             <div className="flex items-center gap-4 bg-gold-500/5 border border-gold-500/10 px-6 py-3 rounded-2xl">
               <div className="w-10 h-10 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
