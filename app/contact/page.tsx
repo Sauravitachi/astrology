@@ -74,7 +74,7 @@ export default function ContactPage() {
               <h3 className="text-2xl font-display font-bold mb-6">Celestial HQ</h3>
               <div className="space-y-6">
                 {[
-                  { icon: '📍', label: 'Address', detail: '777 Nebula Way, Star City, Cosmic Orbit 88' },
+                  { icon: '📍', label: 'Address', detail: 'Mohali, Chandigarh, Punjab' },
                   { icon: '📞', label: 'Phone', detail: '+91 7986006557' },
                   { icon: '✉️', label: 'Email', detail: 'sashtravani@gmail.com' },
                   { icon: '🕰️', label: 'Hours', detail: '24/7 (Guided by Lunar Cycles)' }
