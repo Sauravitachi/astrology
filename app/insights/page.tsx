@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Newsletter from "../Components/Newsletter";
 import { articles } from "../data/articles";
 
 export const metadata: Metadata = {
@@ -71,6 +72,8 @@ export default function InsightsPage() {
           Load More Wisdom
         </button>
       </div>
+
+      <Newsletter />
     </div>
   );
 }

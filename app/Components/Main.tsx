@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Horoscopes from "./Horoscopes";
 import Services from "./Services";
+import Newsletter from "./Newsletter";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Main() {
@@ -223,6 +224,19 @@ export default function Main() {
         </div>
       </section>
 
+      {/* Authority & Trust Section */}
+      <section className="py-12 border-y border-white/5 bg-white/[0.01]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-30 grayscale hover:grayscale-0 transition-all duration-700">
+            {['Vedic Council', 'Astrology Today', 'Cosmic Times', 'Spirit Global', 'Ancient Wisdom Fed.'].map((brand) => (
+              <div key={brand} className="text-xl font-display font-bold tracking-tighter text-white whitespace-nowrap">
+                {brand}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
       <section className="relative py-10 lg:py-10 px-6 overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.05)_0%,transparent_70%)] pointer-events-none"></div>
@@ -407,6 +421,7 @@ export default function Main() {
         </div>
       </section>
 
+      <Newsletter />
     </main>
   );
 }

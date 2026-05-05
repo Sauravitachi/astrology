@@ -19,44 +19,45 @@ export const articles: Article[] = [
     excerpt: "The trickster planet is back. Here's how to navigate communication glitches and technical chaos this season with Vedic remedies.",
     image: "/page.jpeg",
     content: `
-      <p>Mercury Retrograde is often feared as a time of technological glitches, communication breakdowns, and travel delays. In Vedic astrology, Mercury (Budha) represents the intellect, communication, and commerce. When it appears to move backward, these areas of life can experience some friction.</p>
+      <p>Mercury Retrograde is often feared as a time of technological glitches, communication breakdowns, and travel delays. In <strong>Vedic astrology</strong>, Mercury (Budha) represents the intellect, communication, and commerce. When it appears to move backward, these areas of life can experience some friction. Understanding the <strong>planetary transits</strong> during this period is key to maintaining mental clarity.</p>
       
       <h3>What Happens During Mercury Retrograde?</h3>
-      <p>During this period, you might find that emails go unanswered, appointments get canceled, or old friends suddenly reappear in your life. It's not a time to start new ventures, but rather a time to <strong>reflect, rethink, and realign</strong>.</p>
+      <p>During this period, you might find that emails go unanswered, appointments get canceled, or old friends suddenly reappear in your life. It's not a time to start new ventures, but rather a time to <strong>reflect, rethink, and realign</strong>. In the <strong>Vedic birth chart</strong>, the position of Mercury can determine how strongly you feel these effects.</p>
       
-      <h3>Vedic Remedies for Mercury Retrograde</h3>
+      <h3>Vedic Remedies for Mercury Retrograde 2026</h3>
+      <p>If you are looking for <strong>astrological remedies</strong> to survive this season, consider the following:</p>
       <ul>
-        <li><strong>Chant the Budha Mantra:</strong> 'Om Bram Brim Braum Sah Budhaya Namah' to balance the energy.</li>
-        <li><strong>Wear Green:</strong> Mercury is associated with the color green. Wearing it can help soothe the planetary influence.</li>
-        <li><strong>Donate Green Gram (Moong Dal):</strong> Giving back to the community helps mitigate negative effects.</li>
+        <li><strong>Chant the Budha Mantra:</strong> 'Om Bram Brim Braum Sah Budhaya Namah' to balance the energy of the communication planet.</li>
+        <li><strong>Wear Green:</strong> Mercury is associated with the color green. Wearing emeralds or green clothing can help soothe the <strong>malefic planetary influence</strong>.</li>
+        <li><strong>Donate Green Gram (Moong Dal):</strong> In <strong>Jyotish Shastra</strong>, donating items associated with the planet helps mitigate negative Karma.</li>
       </ul>
       
       <h3>Conclusion</h3>
-      <p>Instead of fearing this cosmic event, use it as an opportunity to slow down. Double-check your contracts, be patient with your loved ones, and embrace the pause.</p>
+      <p>Instead of fearing this cosmic event, use it as an opportunity to slow down. Double-check your contracts, be patient with your loved ones, and embrace the pause. Consult an <strong>expert Vedic astrologer</strong> for a personalized reading to see how this retrograde affects your 12 houses.</p>
     `
   },
   {
     slug: "power-of-lunar-rituals",
-    title: "The Power of Lunar Rituals: Manifesting with the Moon",
+    title: "The Power of Lunar Rituals: Manifesting with Purnima and Amavasya",
     category: "Rituals & Magic",
     date: "April 15, 2026",
     author: "Acharya Ankit",
-    excerpt: "Harnessing the energy of the full moon for manifestation and emotional release. A step-by-step Vedic guide to lunar harmony.",
+    excerpt: "Harnessing the energy of the full moon for manifestation and emotional release. A step-by-step Vedic guide to lunar harmony and spiritual growth.",
     image: "/page.jpeg",
     content: `
-      <p>The Moon (Chandra) rules our emotions, subconscious, and intuition. In Vedic astrology, the lunar cycle is a powerful tool for spiritual growth and manifestation.</p>
+      <p>The Moon (Chandra) rules our emotions, subconscious, and intuition. In <strong>Vedic astrology (Jyotish)</strong>, the lunar cycle is a powerful tool for spiritual growth and manifestation. Whether it's the <strong>Full Moon (Purnima)</strong> or the <strong>New Moon (Amavasya)</strong>, each phase offers unique energies.</p>
       
       <h3>New Moon (Amavasya) vs. Full Moon (Purnima)</h3>
-      <p>The <strong>New Moon</strong> is a time for setting intentions and planting seeds for the future. The <strong>Full Moon</strong> is a time of culmination, release, and celebration.</p>
+      <p>The <strong>New Moon</strong> is a time for setting intentions and planting seeds for the future. In the <strong>astrological calendar</strong>, it marks the beginning of a new cycle. The <strong>Full Moon</strong> is a time of culmination, release, and celebration, where lunar energy is at its peak.</p>
       
-      <h3>A Simple Full Moon Ritual</h3>
+      <h3>A Step-by-Step Full Moon Ritual</h3>
       <ol>
-        <li><strong>Cleansing:</strong> Cleanse your space with incense or sage.</li>
-        <li><strong>Moon Water:</strong> Place a glass of water under the moonlight to charge it with lunar energy.</li>
-        <li><strong>Meditation:</strong> Sit in silence and visualize your goals reaching fruition.</li>
+        <li><strong>Cleansing:</strong> Cleanse your space with incense or sage to remove stagnant energy.</li>
+        <li><strong>Moon Water:</strong> Place a glass of water under the moonlight to charge it with <strong>cosmic vibrations</strong>. This is a powerful <strong>Vedic remedy</strong> for emotional healing.</li>
+        <li><strong>Meditation:</strong> Sit in silence and visualize your goals reaching fruition. Recite the 'Om Chandraya Namah' mantra 108 times.</li>
       </ol>
       
-      <p>By aligning your life with the lunar phases, you can find a deeper sense of peace and purpose.</p>
+      <p>By aligning your life with the <strong>lunar phases</strong>, you can find a deeper sense of peace and purpose. Regular practice of these rituals helps in balancing the Mind (Manas) as per ancient scriptures.</p>
     `
   },
   {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import React from "react";
 import Main from "./Components/Main";
+import Newsletter from "./Components/Newsletter";
 
 export const metadata: Metadata = {
   title: "Sashtravani | Expert Vedic Astrology & Daily Horoscopes",
@@ -11,6 +12,7 @@ export default function Home() {
   return (
     <>
       <Main />
+      <Newsletter />
     </>
   );
 }
