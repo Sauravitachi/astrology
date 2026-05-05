@@ -21,9 +21,12 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sashtravani.com"),
-  title: "Talk to Best Astrologers Online | Free Kundli | Sashtravani",
-  description: "Get accurate predictions for Love, Career, and Marriage from India's most trusted Vedic astrologers. Get your Free Kundli & powerful remedies. Consult Now!",
-  keywords: ["Vedic Astrology", "Daily Horoscope", "Career Astrology", "Marriage Matching", "Kundli Analysis", "Acharya Ankit", "Sashtravani"],
+  title: {
+    default: "Sashtravani | Talk to Best Astrologers Online | Free Kundli",
+    template: "%s | Sashtravani Astrology"
+  },
+  description: "Consult India's top Vedic astrologers at Sashtravani. Get accurate predictions for Love, Career, Health, and Marriage. Free Kundli analysis and daily horoscopes available.",
+  keywords: ["Best Astrologers Online", "Vedic Astrology India", "Free Kundli Reading", "Daily Horoscope Predictions", "Marriage Compatibility", "Career Guidance Astrology", "Acharya Ankit", "Sashtravani"],
   authors: [{ name: "Acharya Ankit" }],
   icons: {
     icon: [
@@ -32,8 +35,8 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
   openGraph: {
-    title: "Sashtravani | Premium Astrology & Cosmic Insights",
-    description: "Explore your cosmic destiny with expert astrological readings and daily insights.",
+    title: "Sashtravani | Premium Vedic Astrology & Cosmic Insights",
+    description: "Unlock your destiny with expert astrological readings and daily cosmic insights from Acharya Ankit.",
     url: "https://sashtravani.com",
     siteName: "Sashtravani",
     images: [
@@ -49,8 +52,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sashtravani | Expert Vedic Astrology",
-    description: "Personalized celestial insights for your career, love, and life journey.",
+    title: "Sashtravani | Expert Vedic Astrology Services",
+    description: "Personalized celestial insights for your life journey. Expert guidance from Acharya Ankit.",
     images: ["/page.jpeg"],
   },
   alternates: {

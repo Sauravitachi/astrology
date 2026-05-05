@@ -36,6 +36,7 @@ export default function Header() {
             ]
         },
         { name: t('horoscope'), href: '/horoscope' },
+        { name: 'Insights', href: '/insights' },
         { name: t('contact'), href: '/contact' },
     ];
 

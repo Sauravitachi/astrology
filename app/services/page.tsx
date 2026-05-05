@@ -3,8 +3,9 @@ import React from 'react';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: "Astrology Services | Kundli Analysis, Marriage & Career | Sashtravani",
-  description: "Explore our comprehensive Vedic astrology services. From Kundli matching and career guidance to family harmony and spiritual growth consultations.",
+  title: "Professional Astrology Services | Vedic Consultations",
+  description: "Explore Sashtravani's Vedic astrology services: Kundli Matching, Career Guidance, Marriage Consultation, and Spiritual Growth. Expert insights from Acharya Ankit.",
+  keywords: ["Astrology Services", "Kundli Matching", "Career Astrology", "Marriage Consultation", "Vedic Remedies", "Birth Time Rectification"],
 };
 
 const services = [
