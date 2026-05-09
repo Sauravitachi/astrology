@@ -28,7 +28,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose, 
     setLoading(true);
 
     try {
-      const response = await fetch('https://sashtravani.com/api/astrologer/consult', {
+      const response = await fetch('https://scamfreeindia.in/api/astrologer/consult', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
