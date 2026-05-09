@@ -3,11 +3,58 @@ import Link from "next/link";
 import Image from "next/image";
 import Horoscopes from "./Horoscopes";
 import Services from "./Services";
+import DetailedServices from "./DetailedServices";
 import Newsletter from "./Newsletter";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Main() {
   const { t } = useLanguage();
+  
+  const acharyas = [
+    
+    {
+      name: "Acharya Ravi",
+      experience: "25+",
+      specialty: "Palm Reading Expert",
+      image: "/ravi.jpeg",
+      description: "Master of Palmistry, revealing life's journey and planetary destiny through the sacred lines of your hand."
+    },
+    {
+      name: "Acharya Amit",
+      experience: "18+",
+      specialty: "Chart Reading Expert",
+      image: "/amit.jpeg",
+      description: "Deep expertise in comprehensive Kundli analysis and precise chart-based life predictions."
+    },
+    {
+      name: "Acharya Gaurav",
+      experience: "16+",
+      specialty: "Career, Life & Relationships",
+      image: "/gaurav.jpeg",
+      description: "Specializing in career growth, life purpose guidance, and harmonizing complex relationship dynamics."
+    },
+    {
+      name: "Acharya Rajesh",
+      experience: "19+",
+      specialty: "Face Reading & Energies",
+      image: "/rajesh.jpeg",
+      description: "Expert in face reading and energy analysis to predict future paths and reveal hidden potential."
+    },
+    {
+      name: "Acharya Ratanlal Sharma",
+      experience: "16+",
+      specialty: "Matching & Nadi Dosha",
+      image: "/ratanlal sharma.jpeg",
+      description: "Authority on marriage compatibility (Kundli Milan) and specialized Nadi Dosha remedies."
+    },
+    {
+      name: "Acharya Ankit Sharma",
+      experience: "3+",
+      specialty: t('vedic_specialist'),
+      image: "/ankit.png",
+      description: t('about_p1').split('. ')[0] + '.'
+    }
+  ];
 
   return (
     <main>
@@ -38,10 +85,7 @@ export default function Main() {
               <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)] relative overflow-hidden group">
                 <span className="relative z-10">{t('free_kundli_btn')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
-              </button>
-              <button className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 border border-white/10 text-white font-bold text-base hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                <span className="text-green-500">●</span> {t('consult_expert_btn')}
-              </button>
+              </button>          
             </div>
 
             <p className="text-gold-500/80 text-sm font-medium pt-4 animate-pulse">
@@ -131,63 +175,77 @@ export default function Main() {
 
           <Services />
 
-          <div className="text-center">
+          <div className="text-center pt-12">
             <Link href="/services">
               <button className="btn-gold !px-12">
                 {t('view_all_services')}
               </button>
             </Link>
           </div>
+          
+          <div className="pt-24">
+            <div className="text-center mb-16">
+              <h3 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">
+                {t('specialized_guidance')}
+              </h3>
+              <p className="text-white/40 max-w-xl mx-auto">
+                Comprehensive solutions for every aspect of your life, from deep karmic doshas to modern lifestyle guidance.
+              </p>
+            </div>
+            <DetailedServices />
+          </div>
         </div>
       </section>
-      {/* About Section */}
-      <section id="about" className="relative py-20 lg:py-32 px-6 bg-white/[0.02]">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          <div className="flex-1">
-            <div className="relative group">
-              <div className="absolute -inset-4 bg-gold-500/20 rounded-[40px] blur-2xl group-hover:bg-gold-500/30 transition duration-1000"></div>
-              <Image
-                src="/ankit.png"
-                alt="Astrologer"
-                width={800}
-                height={1000}
-                className="relative rounded-[32px] w-full object-cover aspect-[4/5] border border-white/10"
-              />
-              <div className="absolute bottom-8 right-8 bg-cosmic-black/80 backdrop-blur-md border border-gold-500/30 p-6 rounded-2xl">
-                <div className="text-3xl font-bold text-gold-400">3+</div>
-                <div className="text-xs  uppercase tracking-widest font-bold text-black/90">{t('years_experience')}</div>
-              </div>
-            </div>
-          </div>
-          <div className="flex-1">
+      {/* Experts Section */}
+      <section id="experts" className="relative py-20 lg:py-20 px-6 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto space-y-10">
+          <div className="text-center space-y-4">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 text-gold-400 text-xs font-bold tracking-[0.3em] uppercase">
               {t('meet_guide')}
             </div>
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white leading-tight">
-              {t('about_title_part1')} <br className="hidden md:block" />
-              <span className="text-gradient-gold">{t('about_title_part2')}</span>
+              {t('about_title_part1')} <span className="text-gradient-gold">{t('about_title_part2')}</span>
             </h2>
-            <div className="space-y-6 text-white/70 text-base md:text-lg leading-relaxed">
-              <p>
-                {t('about_p1')}
-              </p>
-              <p>
-                {t('about_p2')}
-              </p>
-              <p>
-                {t('about_p3')}
-              </p>
-            </div>
-            <div className="pt-4 grid grid-cols-2 gap-8 border-t border-white/10 mt-8">
-              <div>
-                <div className="text-gold-400 font-bold mb-1">{t('vedic_specialist')}</div>
-                <div className="text-sm text-white/40 font-light">{t('vedic_specialist_desc')}</div>
+            <p className="text-white/40 max-w-2xl mx-auto text-lg">
+              Connect with India's most experienced Vedic experts for personalized guidance and spiritual growth.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {acharyas.map((acharya, index) => (
+              <div key={index} className="group relative bg-cosmic-black/40 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-gold-500/30 transition-all duration-500">
+                <div className="aspect-[4/5] relative overflow-hidden">
+                  <Image
+                    src={acharya.image}
+                    alt={acharya.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black via-transparent to-transparent opacity-80"></div>
+                  
+                  {/* Experience Badge */}
+                  <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                    <div className="space-y-1">
+                      <div className="bg-gold-500 text-cosmic-black text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest inline-block">
+                        {acharya.experience} {t('years_experience')}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">{acharya.name}</h3>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="p-8 space-y-4">
+                  <div className="flex flex-wrap gap-2">
+                    <span className="text-xs font-medium text-gold-400 bg-gold-500/10 px-3 py-1 rounded-lg border border-gold-500/20">
+                      {acharya.specialty}
+                    </span>
+                  </div>
+                  <p className="text-white/50 text-sm leading-relaxed mb-6">
+                    {acharya.description}
+                  </p>                
+                </div>
               </div>
-              <div>
-                <div className="text-gold-400 font-bold mb-1">{t('empowerment_focused')}</div>
-                <div className="text-sm text-white/40 font-light">{t('empowerment_focused_desc')}</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -420,8 +478,6 @@ export default function Main() {
           </div>
         </div>
       </section>
-
-      <Newsletter />
     </main>
   );
 }

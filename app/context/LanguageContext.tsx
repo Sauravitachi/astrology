@@ -174,6 +174,35 @@ const translations = {
     s6_desc: "Simple remedies, effective results. Practical and highly effective remedies (Gemstones, Pujas, Mantras) to clear blockages in your life.",
     s6_details: "Gemstone advice, Mantra chanting, Ritual guidance",
     get_started: "Get Started",
+    
+    // New Detailed Services
+    service_cat_dosha: "Dosha & Remedies",
+    specialized_guidance: "Specialized Expertise",
+    service_cat_love: "Love & Relationships",
+    service_cat_specialized: "Specialized Sciences",
+    
+    dosha_kaalsarp: "Kaal Sarp Dosha",
+    dosha_mangal: "Mangal Dosha",
+    dosha_pitra: "Pitra Dosha",
+    dosha_shanti: "Graha Shanti Remedies",
+    dosha_gemstone: "Gemstone Consultation",
+    dosha_rituals: "Vedic Rituals & Pooja",
+    
+    love_marriage: "Love & Marriage Astrology",
+    love_matching: "Kundli Matching",
+    love_compat: "Relationship Compatibility",
+    love_divorce: "Divorce Problem Solutions",
+    love_extra: "Extramarital Issue Guidance",
+    love_analysis: "Matchmaking Analysis",
+    
+    spec_palmistry: "Palmistry (Hast Rekha)",
+    spec_numerology: "Numerology",
+    spec_tarot: "Tarot Card Reading",
+    spec_face: "Face Reading (Samudrik)",
+    spec_vaastu: "Vaastu Shastra",
+    spec_name: "Name Correction",
+    spec_muhurat: "Auspicious Timing (Muhurat)",
+    spec_horoscope: "Horoscope (Kundli) Analysis",
 
     // WhatsApp
     wa_title: "Talk to Acharya Ji",
@@ -361,6 +390,35 @@ const translations = {
     s6_desc: "सरल उपाय, असरदार नतीजे। आपके जीवन में बाधाओं को दूर करने के लिए व्यावहारिक और अत्यधिक प्रभावी उपाय (रत्न, पूजा, मंत्र)।",
     s6_details: "रत्न सलाह, मंत्र जाप, अनुष्ठान मार्गदर्शन",
     get_started: "शुरू करें",
+    
+    // New Detailed Services (Hindi)
+    service_cat_dosha: "दोष और उपाय",
+    specialized_guidance: "विशेषज्ञ मार्गदर्शन",
+    service_cat_love: "प्रेम और संबंध",
+    service_cat_specialized: "विशेष विज्ञान",
+    
+    dosha_kaalsarp: "काल सर्प दोष",
+    dosha_mangal: "मंगल दोष",
+    dosha_pitra: "पितृ दोष",
+    dosha_shanti: "ग्रह शांति उपाय",
+    dosha_gemstone: "रत्न परामर्श",
+    dosha_rituals: "वैदिक अनुष्ठान और पूजा",
+    
+    love_marriage: "प्रेम और विवाह ज्योतिष",
+    love_matching: "कुंडली मिलान",
+    love_compat: "रिश्ता अनुकूलता",
+    love_divorce: "तलाक समस्या समाधान",
+    love_extra: "विवाहेतर मुद्दे मार्गदर्शन",
+    love_analysis: "मैचमेकिंग विश्लेषण",
+    
+    spec_palmistry: "हस्तरेखा शास्त्र",
+    spec_numerology: "अंक ज्योतिष",
+    spec_tarot: "टैरो कार्ड रीडिंग",
+    spec_face: "मुख आकृति विज्ञान (सामुद्रिक)",
+    spec_vaastu: "वास्तु शास्त्र",
+    spec_name: "नाम सुधार",
+    spec_muhurat: "शुभ मुहूर्त चयन",
+    spec_horoscope: "जन्म कुंडली विश्लेषण",
 
     // WhatsApp
     wa_title: "आचार्य जी से बात करें",

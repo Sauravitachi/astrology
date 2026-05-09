@@ -26,8 +26,24 @@ export const metadata: Metadata = {
     template: "%s | Sashtravani Astrology"
   },
   description: "Consult India's top Vedic astrologers at Sashtravani. Get accurate predictions for Love, Career, Health, and Marriage. Free Kundli analysis and daily horoscopes available.",
-  keywords: ["Best Astrologers Online", "Vedic Astrology India", "Free Kundli Reading", "Daily Horoscope Predictions", "Marriage Compatibility", "Career Guidance Astrology", "Acharya Ankit", "Sashtravani"],
-  authors: [{ name: "Acharya Ankit" }],
+  keywords: [
+    "Best Astrologers Online", 
+    "Vedic Astrology India", 
+    "Free Kundli Reading", 
+    "Daily Horoscope Predictions", 
+    "Marriage Compatibility", 
+    "Career Guidance Astrology", 
+    "Acharya Ankit Sharma", 
+    "Sashtravani",
+    "Kaal Sarp Dosha Remedies",
+    "Mangal Dosha Analysis",
+    "Palmistry Expert",
+    "Numerology Consultations",
+    "Vaastu Shastra Tips",
+    "Tarot Card Reading Online",
+    "Relationship Compatibility Report"
+  ],
+  authors: [{ name: "Acharya Ankit Sharma" }],
   icons: {
     icon: [
       { url: '/favicon.svg', type: 'image/svg+xml' },
@@ -36,7 +52,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Sashtravani | Premium Vedic Astrology & Cosmic Insights",
-    description: "Unlock your destiny with expert astrological readings and daily cosmic insights from Acharya Ankit.",
+    description: "Unlock your destiny with expert astrological readings and daily cosmic insights from Acharya Ankit Sharma.",
     url: "https://sashtravani.com",
     siteName: "Sashtravani",
     images: [
@@ -53,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Sashtravani | Expert Vedic Astrology Services",
-    description: "Personalized celestial insights for your life journey. Expert guidance from Acharya Ankit.",
+    description: "Personalized celestial insights for your life journey. Expert guidance from Acharya Ankit Sharma.",
     images: ["/page.jpeg"],
   },
   alternates: {

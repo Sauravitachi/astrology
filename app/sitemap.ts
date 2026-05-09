@@ -11,6 +11,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/contact',
     '/services',
+    '/services/kundli',
+    '/services/love',
+    '/services/career',
+    '/services/business',
+    '/services/marriage',
+    '/services/remedies',
     '/horoscope',
     '/insights',
   ];

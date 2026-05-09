@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: "About Acharya Ankit | Vedic Astrologer & Spiritual Guide | Sashtravani",
-  description: "Learn about Acharya Ankit, a renowned Vedic astrologer with 3+ years of experience in helping people find clarity and purpose through ancient cosmic wisdom.",
+  title: "About Acharya Ankit Sharma | Vedic Astrologer & Spiritual Guide | Sashtravani",
+  description: "Learn about Acharya Ankit Sharma, the founder of Sashtravani.com and a renowned Vedic astrologer with years of experience in helping people find clarity and purpose through ancient cosmic wisdom.",
 };
 
 const CheckIcon = () => (
@@ -46,13 +46,13 @@ export default function AboutPage() {
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-white leading-tight">
               About <br />
-              <span className="text-gradient-gold text-nowrap">Acharya Ankit</span>
+              <span className="text-gradient-gold text-nowrap">Acharya Ankit Sharma</span>
             </h1>
             <p className="text-white/70 text-xl leading-relaxed max-w-2xl font-light">
-              A renowned astrology expert with deep knowledge of Vedic astrology, guiding individuals toward clarity, success, and spiritual balance.
+              Founder of <span className="text-gold-400">Sashtravani.com</span>, a renowned astrology expert with deep knowledge of Vedic astrology, guiding individuals toward clarity, success, and spiritual balance.
             </p>
             <p className="text-white/50 text-lg leading-relaxed max-w-2xl">
-              With years of experience in analyzing horoscopes and planetary influences, Acharya Ankit has helped countless people make informed life decisions through the ancient lens of cosmic wisdom.
+              With years of experience in analyzing horoscopes and planetary influences, Acharya Ankit Sharma has helped countless people make informed life decisions through the ancient lens of cosmic wisdom.
             </p>
             <div className="pt-4">
               <Link href="/contact" className="btn-gold !px-10 !py-4 shadow-[0_0_30px_rgba(234,179,8,0.3)]">
