@@ -7,9 +7,15 @@ import DetailedServices from "./DetailedServices";
 import Newsletter from "./Newsletter";
 import { useLanguage } from "../context/LanguageContext";
 import Review from "./Review";
+import { useModal } from "../context/ModalContext";
+
+
 
 export default function Main() {
   const { t } = useLanguage();
+  const { openConsultation } = useModal();
+
+
 
   const acharyas = [
 
@@ -236,8 +242,17 @@ export default function Main() {
                   <p className="text-white/50 text-sm leading-relaxed mb-6">
                     {acharya.description}
                   </p>
+                  
+                  <button 
+                    onClick={() => openConsultation(acharya.name)}
+                    className="w-full btn-gold !py-3 !rounded-xl text-sm font-bold shadow-[0_0_20px_rgba(234,179,8,0.2)] group-hover:scale-[1.02] transition-transform"
+                  >
+                    {t('consult_now')}
+                  </button>
+
                 </div>
               </div>
+
             ))}
           </div>
         </div>
@@ -294,9 +309,14 @@ export default function Main() {
       {/* Mobile Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:hidden bg-gradient-to-t from-cosmic-black via-cosmic-black/95 to-transparent">
         <div className="flex gap-3 max-w-md mx-auto">
-          <button className="flex-1 btn-gold !py-3 !rounded-xl text-sm font-bold shadow-[0_0_20px_rgba(234,179,8,0.3)]">
+          <button 
+            onClick={() => openConsultation()}
+            className="flex-1 btn-gold !py-3 !rounded-xl text-sm font-bold shadow-[0_0_20px_rgba(234,179,8,0.3)]"
+          >
             {t('consult_now')}
           </button>
+
+
           <button className="flex-1 bg-white/10 backdrop-blur-md border border-white/20 text-white !py-3 !rounded-xl text-sm font-bold">
             {t('free_kundli_btn')}
           </button>
@@ -377,10 +397,14 @@ export default function Main() {
             </p>
           </div>
           <div className="pt-8">
-            <button className="btn-gold !px-12 !py-4 text-lg">
+            <button 
+              onClick={() => openConsultation()}
+              className="btn-gold !px-12 !py-4 text-lg"
+            >
               {t('book_session')}
             </button>
           </div>
+
 
         </div>
       </section>
@@ -423,5 +447,7 @@ export default function Main() {
         </div>
       </section>
     </main>
+
+
   );
 }

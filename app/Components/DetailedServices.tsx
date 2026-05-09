@@ -1,9 +1,13 @@
 "use client";
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useModal } from '../context/ModalContext';
+
 
 export default function DetailedServices() {
   const { t } = useLanguage();
+  const { openConsultation } = useModal();
+
 
   const categories = [
     {
@@ -87,10 +91,14 @@ export default function DetailedServices() {
             </ul>
 
             <div className="mt-10">
-              <button className={`w-full py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all`}>
+              <button 
+                onClick={() => openConsultation()}
+                className={`w-full py-3 rounded-xl bg-white/5 border border-white/10 text-xs font-bold uppercase tracking-widest hover:bg-gold-500 hover:text-cosmic-black hover:border-gold-500 transition-all`}
+              >
                 {t('consult_now')}
               </button>
             </div>
+
           </div>
         </div>
       ))}

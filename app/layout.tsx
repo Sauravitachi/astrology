@@ -6,6 +6,8 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 import FloatingWhatsApp from "./Components/FloatingWhatsApp";
 import { LanguageProvider } from "./context/LanguageContext";
+import { ModalProvider } from "./context/ModalContext";
+
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -89,25 +91,28 @@ export default function RootLayout({
         style={{ minHeight: '100vh' }}
       >
         <LanguageProvider>
-          <div className="fixed inset-0 z-[-1] bg-[#020617]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,157,0,0.08)_0%,transparent_70%)]"></div>
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(139,92,246,0.05)_0%,transparent_70%)]"></div>
-            <Image
-              src="/page.jpeg"
-              alt="Background"
-              fill
-              priority
-              className="object-cover opacity-20 mix-blend-screen"
-            />
-          </div>
+          <ModalProvider>
+            <div className="fixed inset-0 z-[-1] bg-[#020617]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(255,157,0,0.08)_0%,transparent_70%)]"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,rgba(139,92,246,0.05)_0%,transparent_70%)]"></div>
+              <Image
+                src="/page.jpeg"
+                alt="Background"
+                fill
+                priority
+                className="object-cover opacity-20 mix-blend-screen"
+              />
+            </div>
 
-          <Header />
-          <main className="relative pt-24 min-h-screen">
-            {children}
-          </main>
-          <Footer />
-          <FloatingWhatsApp />
+            <Header />
+            <main className="relative pt-24 min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <FloatingWhatsApp />
+          </ModalProvider>
         </LanguageProvider>
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
