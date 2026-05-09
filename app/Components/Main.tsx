@@ -6,12 +6,13 @@ import Services from "./Services";
 import DetailedServices from "./DetailedServices";
 import Newsletter from "./Newsletter";
 import { useLanguage } from "../context/LanguageContext";
+import Review from "./Review";
 
 export default function Main() {
   const { t } = useLanguage();
-  
+
   const acharyas = [
-    
+
     {
       name: "Acharya Ravi",
       experience: "25+",
@@ -63,7 +64,7 @@ export default function Main() {
           <div className="flex-1 animate-in fade-in slide-in-from-left-10 duration-1000 text-center lg:text-left">
             <div className="space-y-4">
               <h3 className="text-lg md:text-xl font-bold text-gold-400 tracking-wide">{t('hero_subtitle')}</h3>
-              <h1 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold leading-[1.1] text-white tracking-tight">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold leading-[1.1] text-white tracking-tight">
                 {t('hero_title_part1')} <span className="text-gradient-gold lg:text-nowrap">{t('hero_title_part2')}</span> {t('hero_title_part3')}
               </h1>
             </div>
@@ -85,7 +86,7 @@ export default function Main() {
               <button className="btn-gold w-full sm:w-auto !px-8 !py-4 text-base shadow-[0_0_30px_rgba(234,179,8,0.3)] relative overflow-hidden group">
                 <span className="relative z-10">{t('free_kundli_btn')}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"></div>
-              </button>          
+              </button>
             </div>
 
             <p className="text-gold-500/80 text-sm font-medium pt-4 animate-pulse">
@@ -107,7 +108,7 @@ export default function Main() {
             </div>
           </div>
 
-          <div className="flex-1 relative flex items-center justify-center">
+          <div className="flex-1 relative flex items-center justify-center mt-[-20px] lg:-mt-16">
             <div className="relative w-full max-w-xl aspect-square">
               <div className="relative z-10 w-full h-full animate-float">
                 <style dangerouslySetInnerHTML={{
@@ -121,8 +122,8 @@ export default function Main() {
                   <Image
                     src="/zodiaco.png"
                     alt="Zodiac Wheel"
-                    width={800}
-                    height={800}
+                    width={400}
+                    height={400}
                     className="w-full h-full object-contain"
                     style={{ animation: 'rotate-360 20s linear infinite' }}
                     priority
@@ -133,7 +134,7 @@ export default function Main() {
           </div>
         </div>
       </section>
-      <section id="horoscope" className="relative py-20 lg:py-32 px-6 overflow-hidden">
+      <section id="horoscope" className="relative py-20 lg:py-2 px-6 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
           <div className="glow-orb w-[600px] h-[600px] top-[-300px] left-[-100px] opacity-10"></div>
@@ -175,15 +176,7 @@ export default function Main() {
 
           <Services />
 
-          <div className="text-center pt-12">
-            <Link href="/services">
-              <button className="btn-gold !px-12">
-                {t('view_all_services')}
-              </button>
-            </Link>
-          </div>
-          
-          <div className="pt-24">
+          <div className="pt-1">
             <div className="text-center mb-16">
               <h3 className="text-2xl md:text-4xl font-display font-bold text-white mb-4">
                 {t('specialized_guidance')}
@@ -222,7 +215,7 @@ export default function Main() {
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-cosmic-black via-transparent to-transparent opacity-80"></div>
-                  
+
                   {/* Experience Badge */}
                   <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
                     <div className="space-y-1">
@@ -233,7 +226,7 @@ export default function Main() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="p-8 space-y-4">
                   <div className="flex flex-wrap gap-2">
                     <span className="text-xs font-medium text-gold-400 bg-gold-500/10 px-3 py-1 rounded-lg border border-gold-500/20">
@@ -242,7 +235,7 @@ export default function Main() {
                   </div>
                   <p className="text-white/50 text-sm leading-relaxed mb-6">
                     {acharya.description}
-                  </p>                
+                  </p>
                 </div>
               </div>
             ))}
@@ -251,7 +244,7 @@ export default function Main() {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="relative py-20 lg:py-32 px-6">
+      <section id="process" className="relative py-20 lg:py-5 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6 mb-20">
             <h2 className="text-4xl md:text-6xl font-display font-bold text-white">
@@ -296,51 +289,7 @@ export default function Main() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="relative py-10 lg:py-10 px-6 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(234,179,8,0.05)_0%,transparent_70%)] pointer-events-none"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-display font-bold text-white mb-6">
-              {t('trusted_by')} <span className="text-gradient-gold">{t('hundreds')}</span>
-            </h2>
-            <div className="flex justify-center gap-1 text-gold-500">
-              {"★★★★★".split("").map((s, i) => <span key={i} className="text-2xl">{s}</span>)}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Rahul", text: t('test1_text'), role: "Mumbai", rating: 5 },
-              { name: "Priya", text: t('test2_text'), role: "Delhi", rating: 5 },
-              { name: "Amit", text: t('test3_text'), role: "Bangalore", rating: 5 }
-            ].map((t_item, i) => (
-              <div key={i} className="p-6 md:p-10 rounded-3xl bg-cosmic-black/40 backdrop-blur-sm border border-white/5 hover:border-gold-500/20 transition-all group relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gold-500/5 rounded-bl-full pointer-events-none group-hover:bg-gold-500/10 transition-colors"></div>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(t_item.rating)].map((_, index) => (
-                    <span key={index} className="text-gold-500 text-sm">★</span>
-                  ))}
-                </div>
-                <p className="text-white/70 italic mb-8 leading-relaxed relative z-10">
-                  "{t_item.text}"
-                </p>
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold-500/20 to-gold-600/20 flex items-center justify-center font-bold text-gold-400 border border-gold-500/30">
-                    {t_item.name[0]}
-                  </div>
-                  <div>
-                    <div className="text-white font-bold flex items-center gap-2">
-                      {t_item.name}
-                      <span className="w-3 h-3 bg-blue-500 rounded-full flex items-center justify-center text-[6px] text-white">✓</span>
-                    </div>
-                    <div className="text-white/40 text-[10px] uppercase tracking-widest">{t_item.role} • Verified</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Review/>
 
       {/* Mobile Sticky CTA */}
       <div className="fixed bottom-0 left-0 right-0 z-50 p-4 lg:hidden bg-gradient-to-t from-cosmic-black via-cosmic-black/95 to-transparent">
@@ -433,16 +382,11 @@ export default function Main() {
             </button>
           </div>
 
-          <div className="pt-24 flex justify-center">
-            <div className="w-12 h-12 rounded-full border border-gold-500/20 flex items-center justify-center animate-bounce">
-              <span className="text-gold-500">↓</span>
-            </div>
-          </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="relative py-20 lg:py-32 px-6">
+      <section className="relative py-20 lg:py-12 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl md:text-5xl font-display font-bold text-white">
