@@ -58,7 +58,7 @@ export default function Main() {
       name: "Acharya Ankit Sharma",
       experience: "3+",
       specialty: t('vedic_specialist'),
-      image: "/ankit.png",
+      image: "/ankit.jpeg",
       description: t('about_p1').split('. ')[0] + '.'
     }
   ];
