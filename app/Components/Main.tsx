@@ -20,6 +20,13 @@ export default function Main() {
   const acharyas = [
 
     {
+      name: "Acharya Ankit Sharma",
+      experience: "3+",
+      specialty: t('vedic_specialist'),
+      image: "/ankit.png",
+      description: t('about_p1').split('. ')[0] + '.'
+    },
+    {
       name: "Acharya Ravi",
       experience: "25+",
       specialty: "Palm Reading Expert",
@@ -54,18 +61,12 @@ export default function Main() {
       image: "/ratanlal sharma.jpeg",
       description: "Authority on marriage compatibility (Kundli Milan) and specialized Nadi Dosha remedies."
     },
-    {
-      name: "Acharya Ankit Sharma",
-      experience: "3+",
-      specialty: t('vedic_specialist'),
-      image: "/ankit.jpeg",
-      description: t('about_p1').split('. ')[0] + '.'
-    }
+    
   ];
 
   return (
     <main>
-      <section className="relative pt-10 pb-16 px-6 lg:pt-20 lg:pb-32 overflow-hidden">
+      <section className="relative pt-2 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
           <div className="flex-1 animate-in fade-in slide-in-from-left-10 duration-1000 text-center lg:text-left">
             <div className="space-y-4">
