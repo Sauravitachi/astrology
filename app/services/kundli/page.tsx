@@ -54,7 +54,7 @@ export default function KundliPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
             <Image 
-              src="/page.jpeg" 
+              src="/kundli.png" 
               alt="Kundli Chart" 
               fill
               priority
@@ -62,14 +62,7 @@ export default function KundliPage() {
             />
           </div>
         </div>
-
-        {/* Call to Action */}
-        <section className="text-center py-20 rounded-3xl bg-linear-to-b from-white/5 to-transparent border border-white/5">
-          <h2 className="text-3xl font-display font-bold text-white mb-8">Ready to discover your destiny?</h2>
-          <button className="btn-gold !px-12 !py-4 text-lg">
-            Book a Consultation
-          </button>
-        </section>
+     
       </div>
     </div>
   );

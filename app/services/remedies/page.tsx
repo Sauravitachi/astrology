@@ -35,7 +35,7 @@ export default function RemediesPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center lg:order-1">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
             <Image 
-              src="/page.jpeg" 
+              src="/remedies.png" 
               alt="Vedic Remedies" 
               fill
               priority

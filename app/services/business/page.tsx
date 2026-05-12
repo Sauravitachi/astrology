@@ -35,7 +35,7 @@ export default function BusinessPage() {
           <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 glass-card p-8 flex items-center justify-center lg:order-2">
             <div className="absolute inset-0 bg-gold-500/5 animate-pulse"></div>
             <Image 
-              src="/page.jpeg" 
+              src="/finance.png" 
               alt="Business Prosperity" 
               fill
               priority
