@@ -62,61 +62,96 @@ export default function Horoscopes() {
     setLoading(true);
     setSelectedSign(sign);
 
-    try {
-      const targetUrl = `https://ohmanda.com/api/horoscope/${sign.toLowerCase()}`;
-      const response = await fetch(
-        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`
-      );
+    const apiSources = [
+      `https://freehoroscopeapi.com/api/v1/get-horoscope/daily?sign=${sign.toLowerCase()}&day=today`,
+      `https://ohmanda.com/api/horoscope/${sign.toLowerCase()}`,
+      `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/daily?sign=${sign.toLowerCase()}&day=today`
+    ];
 
-      if (!response.ok) {
-        throw new Error(`Proxy error: ${response.status}`);
-      }
+    const corsProxies = [
+      (url: string) => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+      (url: string) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+      (url: string) => `https://corsproxy.io/?url=${encodeURIComponent(url)}`
+    ];
 
-      const data = await response.json();
+    let success = false;
 
-      if (data && data.horoscope) {
-        let description = data.horoscope;
+    // Outer loop: APIs
+    for (const apiUrl of apiSources) {
+      if (success) break;
 
-        // Automatic Translation for Hindi
-        if (language === 'hi') {
-          try {
-            
-            const chunks = (description.match(/.{1,450}(\s|$)/g) || [description]) as string[];
-            const translatedChunks = await Promise.all(
-              chunks.map(async (chunk: string) => {
-                const translateUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk.trim())}&langpair=en|hi`;
-                const transRes = await fetch(translateUrl);
-                const transData = await transRes.json();
-                return transData?.responseData?.translatedText || chunk;
-              })
-            );
-            description = translatedChunks.join(' ');
-          } catch (transErr) {
-            console.error("Translation Error:", transErr);
+      // Inner loop: Proxies
+      for (const proxyFn of corsProxies) {
+        const proxyUrl = proxyFn(apiUrl);
+        
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s timeout
+
+          const response = await fetch(proxyUrl, { 
+            signal: controller.signal,
+            cache: 'no-store' 
+          });
+          clearTimeout(timeoutId);
+
+          if (!response.ok) continue;
+
+          const data = await response.json();
+          const description = data?.data?.horoscope_data || data?.horoscope || data?.data?.horoscope;
+
+          if (description) {
+            let translatedDescription = description;
+
+            // Automatic Translation for Hindi
+            if (language === 'hi') {
+              try {
+                const chunks = (description.match(/.{1,450}(\s|$)/g) || [description]) as string[];
+                const translatedChunks = await Promise.all(
+                  chunks.map(async (chunk: string) => {
+                    const translateUrl = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(chunk.trim())}&langpair=en|hi`;
+                    const transRes = await fetch(translateUrl);
+                    const transData = await transRes.json();
+                    return transData?.responseData?.translatedText || chunk;
+                  })
+                );
+                translatedDescription = translatedChunks.join(' ');
+              } catch (transErr) {
+                console.error("Translation Error:", transErr);
+              }
+            }
+
+            setHoroscopeData({
+              description: translatedDescription,
+              current_date: data?.data?.date || data?.date || new Date().toDateString(),
+              mood: getDeterministicValue(sign, 'mood'),
+              compatibility: getDeterministicValue(sign, 'compatibility'),
+              color: getDeterministicValue(sign, 'color'),
+              lucky_number: getDeterministicValue(sign, 'lucky_number'),
+              lucky_time: getDeterministicValue(sign, 'lucky_time')
+            });
+            success = true;
+            break; // Exit inner loop
           }
+        } catch (error: any) {
+          console.warn(`Proxy failed for ${apiUrl} using ${proxyUrl.split('/')[2]}:`, error.message);
+          continue;
         }
-
-        setHoroscopeData({
-          description: description,
-          current_date: data.date,
-          mood: getDeterministicValue(sign, 'mood'),
-          compatibility: getDeterministicValue(sign, 'compatibility'),
-          color: getDeterministicValue(sign, 'color'),
-          lucky_number: getDeterministicValue(sign, 'lucky_number'),
-          lucky_time: getDeterministicValue(sign, 'lucky_time')
-        });
-      } else {
-        throw new Error("Invalid horoscope data format");
       }
-    } catch (error: any) {
-      console.error("Detailed Fetch Error:", error);
-      if (error.message.includes('Failed to fetch')) {
-        alert("The horoscope service is currently restricted. Try again later.");
-      }
-      setHoroscopeData(null);
-    } finally {
-      setLoading(false);
     }
+
+    if (!success) {
+      setHoroscopeData({
+        description: t('failed_cosmos'),
+        current_date: new Date().toDateString(),
+        mood: getDeterministicValue(sign, 'mood'),
+        compatibility: getDeterministicValue(sign, 'compatibility'),
+        color: getDeterministicValue(sign, 'color'),
+        lucky_number: getDeterministicValue(sign, 'lucky_number'),
+        lucky_time: getDeterministicValue(sign, 'lucky_time')
+      });
+    }
+
+    setLoading(false);
   };
 
   const closeModal = () => {
